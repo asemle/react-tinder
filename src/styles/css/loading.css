@@ -1,0 +1,44 @@
+.loading {
+  height: 602px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; }
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  overflow: hidden;
+  z-index: 10; }
+  .circle img {
+    width: 100%; }
+
+.halo {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  animation: pulse 6s infinite;
+  border-radius: 100%;
+  border: 1px solid rgba(255, 107, 107, 0.5);
+  background-color: rgba(255, 107, 107, 0.5);
+  z-index: 9; }
+
+.halo2 {
+  animation-delay: -2s; }
+
+.halo3 {
+  animation-delay: -4s; }
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1; }
+  to {
+    -webkit-transform: scale(4.75);
+    transform: scale(4.75);
+    opacity: 0; } }
+
+/*# sourceMappingURL=loading.css.map */
