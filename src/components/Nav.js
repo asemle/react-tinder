@@ -14,7 +14,7 @@ class Nav extends Component {
                 <NavLink className="nav-link" exact activeClassName="activeLink" to='/profile'>
                     <img className='logo' src={profile} alt="" />
                 </NavLink>
-                <NavLink className="nav-link" activeClassName="activeLink" to='/'>
+                <NavLink className="nav-link" activeClassName="activeLink" exact to='/'>
                     <img className='logo' src={flame} alt="" />
                 </NavLink>
                 <NavLink className="nav-link" activeClassName="activeLink" to='/messages'>

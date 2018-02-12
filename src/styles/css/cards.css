@@ -20,7 +20,8 @@
     left: -9999px;
     right: -9999px;
     margin: auto;
-    height: 100%; }
+    height: 100%;
+    pointer-events: none; }
 
 .overlay {
   position: absolute;
@@ -28,14 +29,16 @@
   width: 100%;
   height: 100%;
   bottom: 0;
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), transparent 30%); }
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), transparent 30%);
+  pointer-events: none; }
 
 .overLayBottom {
   text-align: left;
   position: absolute;
   bottom: 0;
   color: white;
-  padding: 20px; }
+  padding: 20px;
+  max-height: 50%; }
   .overLayBottom h2 {
     margin: 0;
     font-weight: 200; }
@@ -89,13 +92,13 @@ li {
 
 .alert-right {
   color: #01df8a;
-  left: 2%;
+  right: 2%;
   border: 4px solid #01df8a;
   transform: rotate(-20deg); }
 
 .alert-left {
   color: #ff4848;
-  right: 2%;
+  left: 2%;
   border: 4px solid #ff4848;
   transform: rotate(20deg); }
 

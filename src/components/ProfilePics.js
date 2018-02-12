@@ -10,7 +10,7 @@ export default class ProfilePics extends Component {
         }
         this.cycleRight = () => {
             var count = this.state.index + 1;
-            if (this.state.index !== this.state.pictures.length) {
+            if (this.state.index !== this.state.pictures.length -1) {
                 this.setState({
                     index: count
                 })
@@ -19,11 +19,10 @@ export default class ProfilePics extends Component {
             
         }
         this.cycleLeft = () => {
-            console.log("sddssdds")
             var count = this.state.index - 1;
             if (this.state.index) {
                 this.setState({
-                    index: this.state.index - 1
+                    index: count
                 })
             }
         }

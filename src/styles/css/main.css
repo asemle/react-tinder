@@ -20,7 +20,8 @@
     left: -9999px;
     right: -9999px;
     margin: auto;
-    height: 100%; }
+    height: 100%;
+    pointer-events: none; }
 
 .overlay {
   position: absolute;
@@ -28,14 +29,16 @@
   width: 100%;
   height: 100%;
   bottom: 0;
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), transparent 30%); }
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), transparent 30%);
+  pointer-events: none; }
 
 .overLayBottom {
   text-align: left;
   position: absolute;
   bottom: 0;
   color: white;
-  padding: 20px; }
+  padding: 20px;
+  max-height: 50%; }
   .overLayBottom h2 {
     margin: 0;
     font-weight: 200; }
@@ -89,13 +92,13 @@ li {
 
 .alert-right {
   color: #01df8a;
-  left: 2%;
+  right: 2%;
   border: 4px solid #01df8a;
   transform: rotate(-20deg); }
 
 .alert-left {
   color: #ff4848;
-  right: 2%;
+  left: 2%;
   border: 4px solid #ff4848;
   transform: rotate(20deg); }
 
@@ -190,6 +193,48 @@ li {
     -webkit-transform: scale(4.75);
     transform: scale(4.75);
     opacity: 0; } }
+.myProfile {
+  padding: 60px 20px;
+  text-align: center; }
+  .myProfile .circle {
+    width: 150px;
+    height: 150px;
+    border: none;
+    margin: 0 auto; }
+  .myProfile h2 {
+    font-weight: 500;
+    margin-bottom: 6px; }
+    .myProfile h2 strong {
+      font-weight: 400; }
+  .myProfile p {
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0; }
+
+.profileBottom {
+  margin-top: 10px; }
+  .profileBottom div {
+    display: inline-block;
+    padding: 0 55px;
+    margin-top: 10px; }
+  .profileBottom .leftBox {
+    border-right: 2px solid gainsboro; }
+  .profileBottom .iconBox {
+    box-sizing: border-box;
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    padding: 11px;
+    background-color: #EFF0F4;
+    border-radius: 50%; }
+    .profileBottom .iconBox img {
+      opacity: 0.1;
+      width: 100%;
+      height: 100%; }
+  .profileBottom h5 {
+    margin-bottom: 0;
+    color: lightgrey; }
+
 html {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -234,7 +279,9 @@ body {
   z-index: 999;
   padding: 10px;
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  transition: left 1s;
+  position: relative; }
 
 .swipe {
   margin-top: -40px;

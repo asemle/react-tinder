@@ -3,7 +3,7 @@ import Cards, { Card } from 'react-swipe-card';
 import axios from 'axios';
 import Loading from './Loading.js'
 import ProfilePics from './ProfilePics.js'
-import people from '../characters.js'
+// import people from '../characters.js'
 
 
 
@@ -11,18 +11,19 @@ class Swipe extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: people
+            data: null
         }
-        // this.getCards = () => axios.get('/api/users/1').then(response => {
-        //     console.log(response)
-        //     this.setState({
-        //         data: response
-        //     })
-        // }).catch(err => {
-        //     console.log(err);
-        // })
 
-        
+    }
+    componentDidMount() {
+        axios.get('/api/users/1').then(response => {
+            console.log(response)
+            this.setState({
+                data: response.data
+            })
+        }).catch(err => {
+            console.log(err);
+        })
     }
 
 
@@ -33,7 +34,11 @@ class Swipe extends Component {
         const CustomAlertLeft = () => <span>NOPE</span>
         const CustomAlertRight = () => <span>LIKE</span>
         
-        let done = () => console.log("done")
+        let done = () => {
+            this.setState({
+                data: null
+            })
+        }
 
         let theCards = <div> Loadi</div>
 
@@ -58,7 +63,6 @@ class Swipe extends Component {
                 )}
             </Cards>
         } else {
-            // this.getCards();
             theCards = <Loading />
         }
         

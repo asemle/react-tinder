@@ -1,5 +1,6 @@
 @import 'cards';
 @import 'loading';
+@import 'profile';
 
 html {
   -webkit-touch-callout: none;
@@ -53,6 +54,8 @@ body {
     padding: 10px;
     display: flex;
     justify-content: space-between;
+    transition: left 1s;
+    position: relative;
 }
 .swipe {
     margin-top: -40px;
