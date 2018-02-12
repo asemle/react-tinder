@@ -168,7 +168,24 @@ body {
   overflow: hidden;
   border: 1px solid #e5e5e5; }
 
-.main {
-  height: 100%; }
+.nav-link {
+  width: 30px;
+  height: 30px; }
+  .nav-link img {
+    width: auto;
+    height: 30px;
+    filter: grayscale(100%);
+    opacity: 0.1;
+    transform: scale(0.8); }
+
+.activeLink img {
+  transform: scale(1.1);
+  filter: none;
+  opacity: 1; }
+
+.Nav {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between; }
 
 /*# sourceMappingURL=main.css.map */
