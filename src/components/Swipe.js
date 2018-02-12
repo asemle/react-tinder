@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Cards, { Card } from 'react-swipe-card';
 import axios from 'axios';
 import Loading from './Loading.js'
+import ProfilePics from './ProfilePics.js'
+import people from '../characters.js'
 
 
 
@@ -9,16 +11,16 @@ class Swipe extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: null
+            data: people
         }
-        this.getCards = () => axios.get('/api/users/1').then(response => {
-            console.log(response)
-            this.setState({
-                data: response
-            })
-        }).catch(err => {
-            console.log(err);
-        })
+        // this.getCards = () => axios.get('/api/users/1').then(response => {
+        //     console.log(response)
+        //     this.setState({
+        //         data: response
+        //     })
+        // }).catch(err => {
+        //     console.log(err);
+        // })
 
         
     }
@@ -38,14 +40,13 @@ class Swipe extends Component {
         
 
         if (this.state.data) {
-            theCards = <div>
+            theCards =
             <Cards onEnd={done} className='master-root' alertRight={<CustomAlertRight />} alertLeft={<CustomAlertLeft />}>
                 {this.state.data.map((item) =>
                     <Card key={item.id} onSwipeLeft={() => swiped("nope")} onSwipeRight={() => swiped("yep")}>
                         <div className="picWrap">
-                            <img className="proPic" src={item.pictures[0]} alt="" />
-                            <div className="overlay">
-                                <div className="overlayTop"></div>
+                            <ProfilePics pictures={item.pictures}/>
+                            <div className="overlay">   
                                 <div className="overLayBottom">
                                     <h2>{`${item.name}, `}<strong>{item.age}</strong></h2>
                                     <p>{item.job}</p>
@@ -56,9 +57,8 @@ class Swipe extends Component {
                     </Card>
                 )}
             </Cards>
-        </div>
         } else {
-            this.getCards();
+            // this.getCards();
             theCards = <Loading />
         }
         

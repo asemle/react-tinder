@@ -49,7 +49,12 @@ body {
     }
 }
 .Nav {
+    z-index: 999;
     padding: 10px;
     display: flex;
     justify-content: space-between;
+}
+.swipe {
+    margin-top: -40px;
+    pointer-events: none;
 }
