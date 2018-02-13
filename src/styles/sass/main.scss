@@ -1,39 +1,51 @@
 @import 'cards';
 @import 'loading';
 @import 'profile';
-
 html {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 body {
-  margin: 0 auto;
-  padding: 0;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  background-color: #f5f7fa;
+    margin: 0 auto;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    background-color: #f5f7fa;
 }
 
 .app {
-  margin: 0px auto;
-  position: relative;
-  min-height: 600px;
-  max-height: 1000px;
-  width: 410px;
-  height: auto;
-  overflow: hidden;
-  border: 1px solid #e5e5e5;
+    margin: 0px auto;
+    position: relative;
+    min-height: 600px;
+    max-height: 1000px;
+    width: 410px;
+    height: auto;
+    overflow: hidden;
+    border: 1px solid #e5e5e5;
+}
+
+.master-root {
+    margin: 0 auto;
+    position: relative;
+    min-height: 600px;
+    max-height: 1000px;
+    width: 410px;
+    height: auto;
+    overflow: hidden;
 }
 
 @media screen and (max-width:600px) {
     .app {
         width: 100vw;
         height: 100vw;
+    }
+    .master-root {
+        width: 100%;
     }
 }
 
@@ -47,15 +59,16 @@ body {
         opacity: 0.1;
         transform: scale(0.8);
     }
-    
 }
+
 .activeLink {
-    img{
+    img {
         transform: scale(1.1);
         filter: none;
         opacity: 1;
     }
 }
+
 .Nav {
     z-index: 999;
     padding: 10px;
@@ -64,6 +77,7 @@ body {
     transition: left 1s;
     position: relative;
 }
+
 .swipe {
     margin-top: -40px;
     pointer-events: none;
