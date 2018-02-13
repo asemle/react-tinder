@@ -15,7 +15,7 @@ export default class Loading extends Component {
                 <div className="halo halo3">
                 </div>
                     <div className="circle">
-                        <img src="https://vignette.wikia.nocookie.net/friends/images/3/32/300px-Janice.jpg/revision/latest?cb=20080903003317" alt="" />
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdLp6tWjhgc2rYei-dr98WP802eDOEYuKS4jScAg3l-18UXUbR" alt="" />
                     
                 </div>
                 
