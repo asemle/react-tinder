@@ -8,7 +8,6 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../public/'));
 
 
-let port = process.env.PORT || 3000
 
 
 
@@ -31,6 +30,6 @@ app.get('/api/users/:id', cardCtrl.read)
 // }
 // writeUserData(data)
 
-app.listen(port, () => {
-    console.log(`Server listening on port ${port}`)
-})
+app.listen(process.env.PORT || 3000, function () {
+    console.log(`Server running`);
+});
