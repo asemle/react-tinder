@@ -12,6 +12,7 @@ app.use(express.static(__dirname + '/../public/'));
 
 
 app.get('/api/users/:id', cardCtrl.read)
+
 // function writeUserData(x) {
 //     x.forEach(user => {
 //         firebase.database().ref('users/' + user.id).set({

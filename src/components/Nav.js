@@ -6,9 +6,9 @@ import profile from './../styles/icons/profile.png';
 import flame from './../styles/icons/flame.png';
 import messages from './../styles/icons/messages2.png';
 
-class Nav extends Component {
+export default function Nav()  {
 
-    render() {
+
         return (
             <header className='Nav'>
                 <NavLink className="nav-link" exact activeClassName="activeLink" to='/profile'>
@@ -23,6 +23,4 @@ class Nav extends Component {
 
             </header>
         )
-    }
-}
-export default Nav;
+ }
