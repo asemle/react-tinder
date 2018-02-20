@@ -7,7 +7,7 @@ const cardCtrl = require(__dirname + "/controllers/cardCtrl")
 app.use(bodyParser.json());
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('/build/'));
+    app.use(express.static('../build'));
 } else {
     app.use(express.static(__dirname + '/../public/'));
 }
