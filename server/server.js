@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 var firebase = require("firebase");
 const app = express();
 const cardCtrl = require(__dirname + "/controllers/cardCtrl")
