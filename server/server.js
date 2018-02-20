@@ -7,7 +7,7 @@ const cardCtrl = require(__dirname + "/controllers/cardCtrl")
 app.use(bodyParser.json());
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('/build'));
+    app.use(express.static('/build/'));
 } else {
     app.use(express.static(__dirname + '/../public/'));
 }
@@ -34,6 +34,6 @@ app.get('/api/users/:id', cardCtrl.read)
 // }
 // writeUserData(data)
 
-app.listen(process.env.PORT || 3000, function () {
+app.listen(process.env.PORT || 3001, function () {
     console.log(`Server running`);
 });
