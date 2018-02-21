@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 var firebase = require("firebase");
 const app = express();
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 5000;
 const cardCtrl = require(__dirname + "/controllers/cardCtrl")
 app.use(cors());
 app.use(bodyParser.json());
