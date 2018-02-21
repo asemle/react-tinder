@@ -22,11 +22,12 @@ module.exports = {
     //     id++;
     // },
     read: (req, res) => {
+        
         firebase.database().ref('users/').once('value').then(function (snapshot) {
             var db = snapshot.val();
             console.log(db)
             res.status(200).send(db)
-        });
+        }).catch((err) => res.status(500).send(console.log("fuck your mother");
         // var db = firebase.database().ref('/users')
         //     let data = db;
         //     console.log(data)
