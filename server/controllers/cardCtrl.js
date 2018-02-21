@@ -27,14 +27,14 @@ module.exports = {
             var db = snapshot.val();
             console.log(db)
             res.status(200).send(db)
-        }).catch((err) => res.status(500).send(console.log("fuck your mother");
+        }).catch((err) => res.status(500).send(console.log("fuck your mother")))
         // var db = firebase.database().ref('/users')
         //     let data = db;
         //     console.log(data)
         //     res.status(200).send("OK")
    
         
-    },
+    }
     // update: (req, res) => {
     //     console.log("req params id is a " + typeof +req.params.id)
 
