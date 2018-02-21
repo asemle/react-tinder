@@ -3,8 +3,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 var firebase = require("firebase");
 const app = express();
+var port = process.env.PORT || 8080;
 const cardCtrl = require(__dirname + "/controllers/cardCtrl")
-
+app.use(cors());
 app.use(bodyParser.json());
 
 if (process.env.NODE_ENV === 'production') {
@@ -35,6 +36,6 @@ app.get('/api/users/:id', cardCtrl.read)
 // }
 // writeUserData(data)
 
-app.listen(3001, function () {
-    console.log(`Server running`);
+app.listen(port, function () {
+    console.log(`Server running on ${port}`);
 });
