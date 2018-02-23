@@ -8,13 +8,8 @@ const cardCtrl = require(__dirname + "/controllers/cardCtrl")
 app.use(cors());
 app.use(bodyParser.json());
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('../build'));
-} else {
-    app.use(express.static('./../public/'));
-}
 
-
+app.use(express.static(`${__dirname}/../build`));
 
 app.get('/api/users/:id', cardCtrl.read)
 
@@ -35,6 +30,10 @@ app.get('/api/users/:id', cardCtrl.read)
 
 // }
 // writeUserData(data)
+const path = require('path')
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'))
+})
 
 app.listen(port, function () {
     console.log(`Server running on ${port}`);
