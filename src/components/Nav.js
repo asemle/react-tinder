@@ -6,12 +6,18 @@ import profile from './../styles/icons/profile.png';
 import flame from './../styles/icons/flame.png';
 import messages from './../styles/icons/messages2.png';
 
-export default function Nav()  {
-
-
+export default class Nav extends Component {
+    constructor(props) {
+        super(props);   
+    }
+    getRoute = ()=>{
+        console.log(window.location.pathname)
+    }
+    render() {
         return (
             <header className='Nav'>
-                <NavLink className="nav-link" exact activeClassName="activeLink" to='/profile'>
+                {this.getRoute()}
+                <NavLink className="nav-link" exact activeClassName="activeLink" to='/account'>
                     <img className='logo' src={profile} alt="" />
                 </NavLink>
                 <NavLink className="nav-link" activeClassName="activeLink" exact to='/'>
@@ -23,4 +29,5 @@ export default function Nav()  {
 
             </header>
         )
+    }
  }

@@ -1,5 +1,6 @@
 @import 'cards';
 @import 'loading';
+@import 'account';
 @import 'profile';
 html {
     -webkit-touch-callout: none;
@@ -21,10 +22,9 @@ body {
 .app {
     margin: 0px auto;
     position: relative;
-    min-height: 600px;
-    max-height: 1000px;
+    min-height: 600px; // max-height: 1000px;
     width: 410px;
-    height: auto;
+    height: 100vh;
     overflow: hidden;
     border: 1px solid #e5e5e5;
 }
@@ -33,10 +33,8 @@ body {
     margin: 0 auto;
     position: relative;
     min-height: 600px;
-    max-height: 1000px;
+    height: 100vh;
     width: 410px;
-    height: auto;
-    overflow: hidden;
 }
 
 @media screen and (max-width:600px) {
@@ -52,6 +50,7 @@ body {
 .nav-link {
     width: 30px;
     height: 30px;
+    margin: 0 30px;   
     img {
         width: auto;
         height: 30px;
@@ -62,6 +61,7 @@ body {
 }
 
 .activeLink {
+    transition: margin 2s;
     img {
         transform: scale(1.1);
         filter: none;
@@ -70,15 +70,16 @@ body {
 }
 
 .Nav {
-    z-index: 999;
+    z-index: 10;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     transition: left 1s;
     position: relative;
+    white-space: nowrap;
 }
 
 .swipe {
-    margin-top: -40px;
+    margin-top: -50px;
     pointer-events: none;
 }

@@ -25,7 +25,7 @@ module.exports = {
         
         firebase.database().ref('users/').once('value').then(function (snapshot) {
             var db = snapshot.val();
-            console.log(db)
+            // console.log(db)
             res.status(200).send(db)
         }).catch((err) => res.status(500).send("fufjdfjkjk"))
         // var db = firebase.database().ref('/users')

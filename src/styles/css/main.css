@@ -1,18 +1,24 @@
 #cards {
   pointer-events: auto; }
 
-.picWrap {
+#picWrap {
   position: relative;
   width: 100%;
   height: 100%;
-  text-align: center; }
-  .picWrap img {
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  top: 0;
+  transition: top 0.2s; }
+  #picWrap img {
     position: absolute;
     left: -9999px;
     right: -9999px;
     margin: auto;
     height: 100%;
-    pointer-events: none; }
+    pointer-events: none;
+    transition: width 0.3s;
+    min-height: 391px; }
 
 .overlay {
   position: absolute;
@@ -27,6 +33,8 @@
   text-align: left;
   position: absolute;
   bottom: 0;
+  box-sizing: border-box;
+  width: 100%;
   color: white;
   padding: 20px;
   max-height: 50%; }
@@ -39,6 +47,13 @@
     margin: 0;
     font-weight: 100;
     line-height: 2em; }
+  .overLayBottom span {
+    font-size: 20px;
+    position: absolute;
+    right: 10%;
+    bottom: 35%;
+    z-index: 10000;
+    pointer-events: auto; }
 
 li {
   list-style: none; }
@@ -52,9 +67,7 @@ li {
   width: 360px;
   margin: 0 auto;
   transition: box-shadow .3s;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  cursor: pointer;
-  overflow: hidden;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.01), 0 4px 5px rgba(0, 0, 0, 0.01);
   border-radius: 8px; }
 
 .animate {
@@ -184,33 +197,34 @@ li {
     -webkit-transform: scale(4.75);
     transform: scale(4.75);
     opacity: 0; } }
-.myProfile {
+.myAccount {
   padding: 60px 20px;
   text-align: center; }
-  .myProfile .circle {
-    width: 150px;
-    height: 150px;
+  .myAccount .circle {
+    width: 200px;
+    height: 200px;
     border: none;
-    margin: 0 auto; }
-  .myProfile h2 {
+    margin: 15% auto; }
+  .myAccount h2 {
     font-weight: 500;
-    margin-bottom: 6px; }
-    .myProfile h2 strong {
+    margin-bottom: 6px;
+    margin-top: 30px; }
+    .myAccount h2 strong {
       font-weight: 400; }
-  .myProfile p {
+  .myAccount p {
     font-size: 14px;
     font-weight: 300;
     margin: 0; }
 
-.profileBottom {
+.accountBottom {
   margin-top: 10px; }
-  .profileBottom div {
+  .accountBottom div {
     display: inline-block;
-    padding: 0 55px;
+    padding: 0 14%;
     margin-top: 10px; }
-  .profileBottom .leftBox {
+  .accountBottom .leftBox {
     border-right: 2px solid gainsboro; }
-  .profileBottom .iconBox {
+  .accountBottom .iconBox {
     box-sizing: border-box;
     margin: 0;
     width: 40px;
@@ -218,13 +232,152 @@ li {
     padding: 11px;
     background-color: #EFF0F4;
     border-radius: 50%; }
-    .profileBottom .iconBox img {
+    .accountBottom .iconBox img {
       opacity: 0.1;
       width: 100%;
       height: 100%; }
-  .profileBottom h5 {
+  .accountBottom h5 {
     margin-bottom: 0;
     color: lightgrey; }
+
+.account {
+  height: 100vh;
+  overflow: scroll;
+  position: relative;
+  top: -50px; }
+  .account #profile {
+    left: 0;
+    top: 0; }
+    .account #profile.open {
+      top: 0;
+      margin-top: -130px;
+      padding-bottom: 200px; }
+    .account #profile .profileReport {
+      display: none; }
+
+.editInfo {
+  text-align: center;
+  position: fixed;
+  bottom: 20px;
+  left: 39.5%;
+  z-index: 333333;
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 44px;
+  font-weight: 600;
+  color: #fd5068;
+  padding: 0 34px;
+  box-shadow: 0 2px 6px 0 rgba(111, 124, 133, 0.14);
+  height: 44px;
+  border-top-left-radius: 34px;
+  border-bottom-right-radius: 34px;
+  border-top-right-radius: 34px;
+  border-bottom-left-radius: 34px;
+  font-size: 16px;
+  letter-spacing: .02em; }
+  .editInfo:focus {
+    outline: none; }
+
+#picWrap.fullScreen {
+  width: 410px;
+  z-index: 10000 !important;
+  position: relative; }
+  #picWrap.fullScreen img {
+    min-width: 410px;
+    height: auto; }
+
+#profile {
+  box-sizing: border-box;
+  text-align: left;
+  color: #9b9b9b;
+  display: none;
+  position: relative;
+  z-index: 10000;
+  width: 114%;
+  top: 100%;
+  width: 410px;
+  background-color: #fff;
+  padding-bottom: 50px;
+  transition: display 0s; }
+  #profile svg {
+    margin-right: 8px;
+    opacity: 0.5; }
+  #profile h2 {
+    font-weight: 500;
+    color: #424242;
+    margin: 0 0 10px; }
+    #profile h2 strong {
+      font-weight: 500; }
+  #profile h4 {
+    margin: 5px 0; }
+
+#profile.open {
+  display: block;
+  top: -130px; }
+
+.profileJob h4 {
+  font-weight: 300; }
+
+.profileHeader {
+  padding: 10px 16px;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 15px; }
+
+.profileDescription {
+  padding: 10px 16px;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  border-bottom: 1px solid #e8e8e8; }
+
+.profileReport {
+  text-align: center;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 14px;
+  line-height: 18px; }
+  .profileReport p {
+    text-transform: uppercase;
+    color: #e8e8e8;
+    transition: color 0.2s; }
+  .profileReport p:hover {
+    color: grey; }
+
+.closeCircle {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.27);
+  position: absolute;
+  right: 15px;
+  top: -15px;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 10px;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  transition: background .25s ease, transform .25s ease, -webkit-transform .25s ease;
+  background: linear-gradient(#ff7854, #fd267d); }
+  .closeCircle img {
+    filter: brightness(0) invert(1); }
+  .closeCircle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2); }
+    .closeCircle:hover img {
+      filter: none; }
+
+.anotherdiv {
+  overflow-y: scroll;
+  width: 410px;
+  left: -25px;
+  z-index: 10000 !important;
+  position: relative;
+  top: -10vh;
+  padding-right: 20px; }
+
+::-webkit-scrollbar {
+  display: none; }
+
+.somanydivs {
+  max-height: 100vh; }
 
 html {
   -webkit-touch-callout: none;
@@ -245,9 +398,8 @@ body {
   margin: 0px auto;
   position: relative;
   min-height: 600px;
-  max-height: 1000px;
   width: 410px;
-  height: auto;
+  height: 100vh;
   overflow: hidden;
   border: 1px solid #e5e5e5; }
 
@@ -255,10 +407,8 @@ body {
   margin: 0 auto;
   position: relative;
   min-height: 600px;
-  max-height: 1000px;
-  width: 410px;
-  height: auto;
-  overflow: hidden; }
+  height: 100vh;
+  width: 410px; }
 
 @media screen and (max-width: 600px) {
   .app {
@@ -269,7 +419,8 @@ body {
     width: 100%; } }
 .nav-link {
   width: 30px;
-  height: 30px; }
+  height: 30px;
+  margin: 0 30px; }
   .nav-link img {
     width: auto;
     height: 30px;
@@ -277,21 +428,24 @@ body {
     opacity: 0.1;
     transform: scale(0.8); }
 
-.activeLink img {
-  transform: scale(1.1);
-  filter: none;
-  opacity: 1; }
+.activeLink {
+  transition: margin 2s; }
+  .activeLink img {
+    transform: scale(1.1);
+    filter: none;
+    opacity: 1; }
 
 .Nav {
-  z-index: 999;
+  z-index: 10;
   padding: 10px;
   display: flex;
   justify-content: space-between;
   transition: left 1s;
-  position: relative; }
+  position: relative;
+  white-space: nowrap; }
 
 .swipe {
-  margin-top: -40px;
+  margin-top: -50px;
   pointer-events: none; }
 
 /*# sourceMappingURL=main.css.map */

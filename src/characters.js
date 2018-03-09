@@ -116,7 +116,7 @@ var data = [
         location: "5 miles",
         pictures: ["https://vignette.wikia.nocookie.net/friends/images/4/48/MonicaGeller.jpg/revision/latest?cb=20070424180524", "https://vignette.wikia.nocookie.net/friends/images/9/9e/Monica-geller-picture.jpg/revision/latest/scale-to-width-down/180?cb=20110723171212"],
         job: "Chef",
-        school: "",
+        school: "Culinary Institute of America",
         about: "Now, I need you to be careful and efficient.And remember: If I am harsh with you, it's only because you're doing it wrong."
 
     },

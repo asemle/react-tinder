@@ -1,0 +1,103 @@
+.myAccount {
+    padding: 60px 20px;
+    text-align: center;
+    .circle {
+        width: 200px;
+        height: 200px;
+        border: none;
+        margin: 15% auto;
+    }
+    h2 {
+        font-weight: 500;
+        margin-bottom: 6px;
+        margin-top: 30px;
+        strong {
+            font-weight: 400;
+        }
+    }
+    p {
+        font-size: 14px;
+        font-weight: 300;
+        margin: 0;
+    }
+}
+
+.accountBottom {
+    margin-top: 10px;
+    div {
+        display: inline-block;
+        padding: 0 14%;
+        margin-top: 10px;
+    }
+    .leftBox {
+        border-right: 2px solid gainsboro;
+    }
+    .iconBox {
+        box-sizing: border-box;
+        margin: 0;
+        width: 40px;
+        height: 40px;
+        padding: 11px;
+        background-color: #EFF0F4;
+        border-radius: 50%;
+        img {
+            // filter: grayscale(50%);
+            opacity: 0.1;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    h5 {
+        margin-bottom: 0;
+        color: lightgrey;
+    }
+}
+
+.account {
+    height: 100vh;
+    overflow: scroll;
+    position: relative;
+    top: -50px;
+    #picWrap.fullScreen {
+        // left: 0;
+        // overflow: unset;
+        // top: 0;
+    }
+    #profile {
+        left: 0;
+        top: 0;
+        &.open {
+            top: 0;
+            margin-top: -130px;
+            padding-bottom: 200px;
+        }
+        .profileReport {
+            display: none;
+        }
+    }
+}
+
+.editInfo {
+    text-align: center;
+    position: fixed;
+    bottom: 20px;
+    left: 39.5%;
+    z-index: 333333;
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 44px;
+    font-weight: 600;
+    color: #fd5068;
+    padding: 0 34px;
+    box-shadow: 0 2px 6px 0 hsla(205, 9%, 48%, .14);
+    height: 44px;
+    border-top-left-radius: 34px;
+    border-bottom-right-radius: 34px;
+    border-top-right-radius: 34px;
+    border-bottom-left-radius: 34px;
+    font-size: 16px;
+    letter-spacing: .02em;
+    &:focus {
+        outline: none
+    }
+}

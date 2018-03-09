@@ -3,12 +3,12 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 var firebase = require("firebase");
 const app = express();
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 3005;
 const cardCtrl = require(__dirname + "/controllers/cardCtrl")
 app.use(cors());
 app.use(bodyParser.json());
 
-
+console.log(__dirname)
 app.use(express.static(`${__dirname}/../build`));
 
 app.get('/api/users/:id', cardCtrl.read)
@@ -32,6 +32,7 @@ app.get('/api/users/:id', cardCtrl.read)
 // writeUserData(data)
 const path = require('path')
 app.get('*', (req, res) => {
+    console.log(path.join(__dirname, '../build/index.html'))
     res.sendFile(path.join(__dirname, '../build/index.html'))
 })
 
