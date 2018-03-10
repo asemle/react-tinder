@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import Profile from './Profile';
-import ProfilePics from './ProfilePics';
+
+
+import MyProfile from './MyProfile';
+import MyAccount from './MyAccount';
+import Edit from './Edit'
 
 import axios from 'axios';
-import cog from "./../styles/icons/cog.png";
-import pencil from "./../styles/icons/pencil.png";
+
 
 export default class Account extends Component {
     constructor(props) {
@@ -12,7 +14,6 @@ export default class Account extends Component {
         let myData = props.myProfile
         this.state = {
             me:myData,
-            pictureIndex: 0,
             cmpt: 'account'
         }
     }
@@ -30,41 +31,16 @@ export default class Account extends Component {
         var item = this.state.me;
         console.log(this.state.cmpt)
         if(this.state.cmpt === 'account') {
-            show = <div className="myAccount">
-                <div className="circle" onClick={() => this.changeCmpt("profile")}>
-                    <img src={item.pictures[this.state.pictureIndex]} alt="fffgdsf" />
-                </div>
-                <h2>{`${item.name}, `}<strong>{item.age}</strong></h2>
-                <p>{item.job}</p>
-                <p>{item.school}</p>
-                <div className="accountBottom">
-                    <div onClick={() => this.changeCmpt("settings")}className="leftBox">
-                        <div className="iconBox"><img src={cog} alt="cog" /></div>
-                        <h5>SETTINGS</h5>
-                    </div>
-                    <div onClick={() => this.changeCmpt("edit")}>
-                        <div className="iconBox"><img src={pencil} alt="pencil" /></div>
-                        <h5>EDIT INFO</h5>
-                    </div>
-                </div>
+            show = <MyAccount change={(x) => this.changeCmpt(x)} item={item}/>
+            
+            
 
-
-            </div>
         }
         else if(this.state.cmpt === "profile") {
-            show = <div>
-                        <div id="picWrap" className='fullScreen'>
-                            <ProfilePics pictures={item.pictures} />
-                        </div>
-                        <Profile info={item.id} close={() => this.changeCmpt("account")}profile={item}></Profile>
-                        <button onClick={() => this.changeCmpt("edit")}className="editInfo">EDIT INFO</button>
-                    </div>
+            show = <MyProfile change={(x) => this.changeCmpt(x)}item={item}/>
         }
         else if (this.state.cmpt === "edit") {
-            show =  <div>
-                        
-
-                    </div>
+            show = <Edit item={item} change={(x) => this.changeCmpt(x)}/>
         }
 
 

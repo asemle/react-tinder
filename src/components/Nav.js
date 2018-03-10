@@ -11,12 +11,18 @@ export default class Nav extends Component {
         super(props);   
     }
     getRoute = ()=>{
-        console.log(window.location.pathname)
+        switch (window.location.hash) {
+            case '#/':
+                return 'navMiddle';
+            case '#/account':
+                return 'navRight';
+            case '#/messages':
+                return 'navLeft';
+        }
     }
     render() {
         return (
-            <header className='Nav'>
-                {this.getRoute()}
+            <header id='Nav' className={this.getRoute()}>
                 <NavLink className="nav-link" exact activeClassName="activeLink" to='/account'>
                     <img className='logo' src={profile} alt="" />
                 </NavLink>

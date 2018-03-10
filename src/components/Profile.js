@@ -19,7 +19,7 @@ export default class Profile extends Component {
                         <h4><i className="fas fa-briefcase"></i>{`${pro.job}`}</h4>
                     </div>
                     <div className="profileSchool" style={{ display: pro.school ? 'block' : 'none' }}>
-                        <h4><i className="fas fa-graduation-cap"></i>         {`${pro.school}`}</h4>
+                        <h4><i className="fas fa-graduation-cap"></i>{`${pro.school}`}</h4>
                     </div>
                     <div style={{ display: pro.distance ? 'block' : 'none' }} className="profileDistance">
                         <h4><i className="fas fa-map-marker-alt"></i>{`${pro.school}`}</h4>
