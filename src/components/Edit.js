@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 
 export default class Edit extends Component{
 
+    constructor() {
+        super();
+        this.state = {
+            characters: ""
+        }
+    }
+    handleChange(event) {
+        this.setState({
+            characters:event.target.value
+        });
+    }
 
     render() {
         const item = this.props.item;
@@ -37,8 +48,8 @@ export default class Edit extends Component{
                         </div>
                     </div>
                     <span className="inputTitle">ABOUT ME</span>
-                    <textarea name="about" id="" cols="30" rows="5"></textarea>
-                    <div className="wordCount">444</div>
+                    <textarea onChange={(e) => this.handleChange(e)} value={this.state.characters} name="about" maxLength="500" id="" cols="30" rows="5"></textarea>
+                    <div className="wordCount">{500 - this.state.characters.length}</div>
                     <span className="inputTitle">CURRENT WORK</span>
                     <input type="text" name="" id=""></input><i className="fas fa-angle-right"></i>
                     <span className="inputTitle">SCHOOL</span>

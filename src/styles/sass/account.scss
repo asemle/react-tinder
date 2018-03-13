@@ -144,7 +144,7 @@
         box-sizing: border-box;
         resize: none;
         padding: 14px 12px;
-        font-size: 16px;
+        font-size: 15px;
         line-height: 21px;
         font-weight: 400;
         color: #424242;
@@ -160,7 +160,7 @@
         width: 100%;
         border: none;
         padding: 14px 12px;
-        font-size: 16px;
+        font-size: 15px;
         line-height: 21px;
         font-weight: 400;
         color: #424242;
@@ -294,7 +294,33 @@
     margin-top: -35px;
     color: #D2D2D2;
     font-size: 20px; // bottom: 10%;
-} //  <div className="Edit">
+}
+
+@media screen and (max-width:600px) {
+    .Edit header {
+        width: 100vw;
+    }
+    .picGrid {
+        height: 100vw;
+        ;
+    }
+    .account {
+        #picWrap.fullScreen {
+            width: 100vw;
+            img {
+                width: 100vw;
+            }
+        }
+        #profile {
+            width: 100vw;
+            &.open {
+                margin-top: -35px;
+            }
+        }
+    }
+}
+
+//  <div className="Edit">
 //                 <header><span></span><span>Edit Info</span><span classNanme="done">Done</span></header>
 //                 <div className="editWrap">
 //                     <div className="picGrid">

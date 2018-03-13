@@ -3,6 +3,7 @@ import {Switch, Route} from 'react-router-dom';
 import Nav from './components/Nav.js' ;
 import Swipe from './components/Swipe.js';
 import Account from './components/Account.js';
+import Messages from './components/Messages.js';
 
 var me = {
   id: 0,
@@ -26,6 +27,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/account' render={() => <Account myProfile={me}/>} />
           <Route exact path='/' component={Swipe} />
+          <Route exact path='/messages' component={Messages} />
         </Switch>
       </div>
     );

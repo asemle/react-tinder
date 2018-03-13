@@ -7,7 +7,8 @@ export default class MyAccount extends Component {
         super(props)
 
         this.state = {
-            pictureIndex: 0
+            pictureIndex: 0,
+
         }
     }
     render() {

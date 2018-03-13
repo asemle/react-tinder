@@ -2,6 +2,8 @@
 @import 'loading';
 @import 'account';
 @import 'profile';
+@import 'messages';
+
 html {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -38,7 +40,9 @@ body {
 }
 
 @media screen and (max-width:600px) {
-
+    .app {
+        width: 100vw;
+    }
     .master-root {
         width: 100%;
     }
