@@ -1,82 +1,698 @@
-/*
-Error: Invalid CSS after "...  color:#9b9b9b": expected "{", was ";"
-        on line 87 of src/styles/sass/messages.scss
-        from line 5 of ./src/styles/sass/main.scss
+#cards {
+  pointer-events: auto; }
 
-82:         margin: 0 0 3px;
-83:         font-weight: 500;
-84:     }
-85:     span {
-86:         w
-87:         color:#9b9b9b;
-88:         font-size: 14px;
-89:         font-weight: 200;
-90:     }
-91: }
+#picWrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  top: 0;
+  transition: top 0.2s; }
+  #picWrap img {
+    position: absolute;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+    height: 100%;
+    pointer-events: none;
+    transition: width 0.3s;
+    min-height: 391px; }
 
-Backtrace:
-src/styles/sass/messages.scss:87
-./src/styles/sass/main.scss:5
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:1278:in `expected'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:1208:in `expected'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:1203:in `tok!'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:677:in `block'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:747:in `declaration_or_ruleset'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:697:in `block_child'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:686:in `block_contents'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:678:in `block'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:747:in `declaration_or_ruleset'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:697:in `block_child'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:689:in `block_contents'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:678:in `block'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:670:in `ruleset'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:696:in `block_child'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:689:in `block_contents'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:137:in `stylesheet'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:41:in `parse'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/engine.rb:414:in `_to_tree'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/engine.rb:321:in `to_tree'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/tree/visitors/perform.rb:327:in `block in visit_import'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/stack.rb:88:in `block in with_import'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/stack.rb:135:in `with_frame'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/stack.rb:88:in `with_import'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/tree/visitors/perform.rb:326:in `visit_import'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/stack.rb:79:in `block in with_base'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/stack.rb:135:in `with_frame'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/stack.rb:79:in `with_base'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/tree/visitors/perform.rb:162:in `visit'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/tree/visitors/base.rb:52:in `map'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/tree/visitors/perform.rb:161:in `visit'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/tree/visitors/perform.rb:10:in `visit'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/tree/root_node.rb:36:in `css_tree'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/engine.rb:307:in `render_with_sourcemap'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/plugin/compiler.rb:209:in `each'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/plugin/compiler.rb:294:in `watch'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/plugin.rb:109:in `method_missing'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/exec/sass_scss.rb:360:in `watch_or_update'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/exec/sass_scss.rb:51:in `process_result'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/exec/base.rb:52:in `parse'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/lib/sass/exec/base.rb:19:in `parse!'
-/Library/Ruby/Gems/2.3.0/gems/sass-3.5.5/bin/sass:13:in `<top (required)>'
-/usr/local/bin/sass:22:in `load'
-/usr/local/bin/sass:22:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"...  color:#9b9b9b\": expected \"{\", was \";\"\A         on line 87 of src/styles/sass/messages.scss\A         from line 5 of ./src/styles/sass/main.scss\A \A 82:         margin: 0 0 3px;\A 83:         font-weight: 500;\A 84:     }\A 85:     span {\A 86:         w\A 87:         color:#9b9b9b;\A 88:         font-size: 14px;\A 89:         font-weight: 200;\A 90:     }\A 91: }"; }
+.overlay {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), transparent 30%);
+  pointer-events: none; }
+
+.overLayBottom {
+  text-align: left;
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+  width: 100%;
+  color: white;
+  padding: 20px;
+  max-height: 50%; }
+  .overLayBottom h2 {
+    margin: 0;
+    font-weight: 200; }
+    .overLayBottom h2 strong {
+      font-weight: 300; }
+  .overLayBottom p {
+    margin: 0;
+    font-weight: 100;
+    line-height: 2em; }
+  .overLayBottom span {
+    font-size: 20px;
+    position: absolute;
+    right: 10%;
+    bottom: 35%;
+    z-index: 10000;
+    pointer-events: auto; }
+
+li {
+  list-style: none; }
+
+.card {
+  background-color: white;
+  background-size: cover;
+  position: absolute;
+  background: #F8F3F3;
+  height: auto;
+  width: 360px;
+  margin: 0 auto;
+  transition: box-shadow .3s;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.01), 0 4px 5px rgba(0, 0, 0, 0.01);
+  border-radius: 8px; }
+
+.animate {
+  transition: transform .3s;
+  box-shadow: none;
+  transform: rotate(20deg); }
+
+.inactive {
+  box-shadow: 1px 1px 1px 2px rgba(100, 100, 100, 0.02); }
+
+.alert {
+  width: auto;
+  top: 10%;
+  position: absolute;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity .3s;
+  color: white;
+  vertical-align: middle;
+  line-height: 35px;
+  font-size: 40px;
+  font-weight: 600; }
+
+.alert-visible {
+  opacity: 1; }
+
+.alert-right {
+  color: #01df8a;
+  right: 2%;
+  border: 4px solid #01df8a;
+  transform: rotate(-20deg); }
+
+.alert-left {
+  color: #ff4848;
+  left: 2%;
+  border: 4px solid #ff4848;
+  transform: rotate(20deg); }
+
+.alert-top {
+  background: purple;
+  border-radius: 50px;
+  transform: translate(-50%, 0);
+  margin-left: 50%; }
+
+.alert-bottom {
+  bottom: 0;
+  background: blue;
+  border-top-left-radius: 50px;
+  border-radius: 50px;
+  transform: translate(-50%, 0);
+  margin-left: 50%; }
+
+.leftButton {
+  height: 504px;
+  width: 50%;
+  z-index: 9999;
+  float: left; }
+
+.rightButton {
+  height: 504px;
+  width: 50%;
+  z-index: 9999;
+  float: left; }
+
+.overlayTop {
+  float: left;
+  width: 100%;
+  height: 20px; }
+  .overlayTop ul {
+    height: 100%;
+    margin: 0;
+    padding: 5px 10px 12px;
+    box-sizing: border-box;
+    display: flex; }
+    .overlayTop ul li {
+      margin: 0 2px;
+      border-radius: 10px;
+      z-index: 999;
+      flex-grow: 1;
+      background-color: lightgrey;
+      opacity: 0.5; }
+  .overlayTop .activePic {
+    background-color: white;
+    opacity: 1; }
+
+.loading {
+  height: 602px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; }
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  overflow: hidden;
+  z-index: 10; }
+  .circle img {
+    width: 100%; }
+
+.halo {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  animation: pulse 6s infinite;
+  border-radius: 100%;
+  border: 1px solid rgba(255, 107, 107, 0.5);
+  background-color: rgba(255, 107, 107, 0.5);
+  z-index: 9; }
+
+.halo2 {
+  animation-delay: -2s; }
+
+.halo3 {
+  animation-delay: -4s; }
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1; }
+  90% {
+    opacity: 0; }
+  to {
+    -webkit-transform: scale(4.75);
+    transform: scale(4.75);
+    opacity: 0; } }
+.myAccount {
+  padding: 60px 20px;
+  text-align: center; }
+  .myAccount .circle {
+    width: 200px;
+    height: 200px;
+    border: none;
+    margin: 15% auto; }
+  .myAccount h2 {
+    font-weight: 500;
+    margin-bottom: 6px;
+    margin-top: 30px; }
+    .myAccount h2 strong {
+      font-weight: 400; }
+  .myAccount p {
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0; }
+
+.accountBottom {
+  margin-top: 10px; }
+  .accountBottom div {
+    display: inline-block;
+    padding: 0 14%;
+    margin-top: 10px; }
+  .accountBottom .leftBox {
+    border-right: 2px solid gainsboro; }
+  .accountBottom .iconBox {
+    box-sizing: border-box;
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    padding: 11px;
+    background-color: #EFF0F4;
+    border-radius: 50%; }
+    .accountBottom .iconBox img {
+      opacity: 0.1;
+      width: 100%;
+      height: 100%; }
+  .accountBottom h5 {
+    margin-bottom: 0;
+    color: lightgrey; }
+
+.account {
+  height: 100vh;
+  overflow: scroll;
+  position: relative;
+  top: -50px; }
+  .account #profile {
+    left: 0;
+    top: 0; }
+    .account #profile.open {
+      top: 0;
+      margin-top: -130px;
+      padding-bottom: 200px; }
+    .account #profile .profileReport {
+      display: none; }
+
+.editInfo {
+  text-align: center;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -76px;
+  z-index: 333333;
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 44px;
+  font-weight: 600;
+  color: #fd5068;
+  padding: 0 34px;
+  box-shadow: 0 2px 6px 0 rgba(111, 124, 133, 0.14);
+  height: 44px;
+  border-top-left-radius: 34px;
+  border-bottom-right-radius: 34px;
+  border-top-right-radius: 34px;
+  border-bottom-left-radius: 34px;
+  font-size: 16px;
+  letter-spacing: .02em; }
+  .editInfo:focus {
+    outline: none; }
+
+.Edit {
+  width: 100%;
+  position: relative; }
+  .Edit header {
+    background-color: #fff;
+    z-index: 444444;
+    position: fixed;
+    width: 410px;
+    height: 44px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #e8e8e8;
+    top: 0; }
+    .Edit header span {
+      min-width: 44px;
+      line-height: 44px;
+      padding: 0 12.5px;
+      font-weight: 600;
+      font-size: 17px;
+      color: #424242; }
+    .Edit header .done {
+      color: #fd5068;
+      font-size: 15px;
+      font-weight: 400;
+      cursor: pointer; }
+
+.editWrap {
+  padding: 12px 0 100px;
+  background-color: #F5F7FA;
+  text-align: left;
+  box-sizing: border-box; }
+  .editWrap textarea {
+    width: 100%;
+    border: none;
+    box-sizing: border-box;
+    resize: none;
+    padding: 14px 12px;
+    font-size: 15px;
+    line-height: 21px;
+    font-weight: 400;
+    color: #424242; }
+    .editWrap textarea:resizer {
+      display: none; }
+    .editWrap textarea:focus {
+      outline: none; }
+  .editWrap input {
+    background-color: #ffff;
+    width: 100%;
+    border: none;
+    padding: 14px 12px;
+    font-size: 15px;
+    line-height: 21px;
+    font-weight: 400;
+    color: #424242; }
+    .editWrap input:focus {
+      outline: none; }
+
+.wordCount {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #ffff;
+  text-align: right;
+  padding: 0 12px 12px 12px;
+  font-weight: 600;
+  color: #9b9b9b;
+  margin-top: -4px;
+  font-size: 15px;
+  line-height: 21px; }
+
+.picGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  margin-top: 45px;
+  height: 410px;
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
+  padding: 0 12px; }
+  .picGrid div {
+    border-radius: 6px;
+    background-color: #E0E4E9;
+    overflow: hidden;
+    position: relative; }
+    .picGrid div img {
+      width: 100%; }
+    .picGrid div span {
+      text-align: center;
+      position: absolute;
+      bottom: -5px;
+      right: -5px;
+      width: 25px;
+      height: 25px;
+      background-color: #F5F7FA;
+      border-radius: 100%; }
+    .picGrid div svg {
+      line-height: 11px;
+      color: #FD486B;
+      margin: 15%; }
+
+.item-a {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3; }
+
+.item-b {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2; }
+
+.item-c {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3; }
+
+.item-d {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4; }
+
+.item-e {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4; }
+
+.item-f {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 4; }
+
+.picButton .fa-plus-circle {
+  display: none; }
+.picButton .fa-times {
+  display: inline-block;
+  font-size: 16px; }
+
+.removePic .fa-times {
+  display: none; }
+.removePic .fa-plus-circle {
+  display: inline-block;
+  font-size: 17px; }
+
+.inputTitle {
+  display: block;
+  padding: 0 10px;
+  margin: 16px 0 8px;
+  font-weight: 600;
+  color: #424242; }
+
+.fa-angle-right {
+  position: absolute;
+  right: 8px;
+  margin-top: 15px;
+  color: #D2D2D2;
+  font-size: 20px; }
+
+@media screen and (max-width: 600px) {
+  .Edit header {
+    width: 100vw; }
+
+  .picGrid {
+    height: 100vw; }
+
+  .account #picWrap.fullScreen {
+    width: 100vw; }
+    .account #picWrap.fullScreen img {
+      width: 100vw; }
+  .account #profile {
+    width: 100vw; }
+    .account #profile.open {
+      margin-top: -35px; } }
+#picWrap.fullScreen {
+  width: 410px;
+  z-index: 10000 !important;
+  position: relative; }
+  #picWrap.fullScreen img {
+    min-width: 410px;
+    height: auto; }
+
+#profile {
+  box-sizing: border-box;
+  text-align: left;
+  color: #9b9b9b;
+  display: none;
+  position: relative;
+  z-index: 10000;
+  width: 114%;
+  top: 100%;
+  width: 410px;
+  background-color: #fff;
+  padding-bottom: 50px;
+  transition: display 0s; }
+  #profile svg {
+    margin-right: 8px;
+    opacity: 0.5; }
+  #profile h2 {
+    font-weight: 500;
+    color: #424242;
+    margin: 0 0 10px; }
+    #profile h2 strong {
+      font-weight: 500; }
+  #profile h4 {
+    margin: 5px 0; }
+
+#profile.open {
+  display: block;
+  top: -130px; }
+
+#profile h4 {
+  font-weight: 300; }
+
+.profileHeader {
+  padding: 10px 16px;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 15px; }
+
+.profileDescription {
+  padding: 10px 16px;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  border-bottom: 1px solid #e8e8e8; }
+
+.profileReport {
+  text-align: center;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 14px;
+  line-height: 18px; }
+  .profileReport p {
+    text-transform: uppercase;
+    color: #e8e8e8;
+    transition: color 0.2s; }
+  .profileReport p:hover {
+    color: grey; }
+
+.closeCircle {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.27);
+  position: absolute;
+  right: 15px;
+  top: -15px;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 10px;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  transition: background .25s ease, transform .25s ease, -webkit-transform .25s ease;
+  background: linear-gradient(#ff7854, #fd267d); }
+  .closeCircle img {
+    filter: brightness(0) invert(1); }
+  .closeCircle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2); }
+    .closeCircle:hover img {
+      filter: none; }
+
+.anotherdiv {
+  overflow-y: scroll;
+  width: 410px;
+  left: -25px;
+  z-index: 10000 !important;
+  position: relative;
+  top: -10vh;
+  padding-right: 20px; }
+
+::-webkit-scrollbar {
+  display: none; }
+
+.somanydivs {
+  max-height: 100vh; }
+
+* {
+  box-sizing: border-box; }
+
+.messagesWrap {
+  height: 100%; }
+
+.matchesTitle {
+  padding: 12px 8px;
+  text-align: left; }
+  .matchesTitle span {
+    color: #fd5068;
+    font-weight: 600;
+    font-size: 15px; }
+
+.matchList {
+  width: 100%;
+  white-space: nowrap;
+  padding: 4px 8px;
+  padding-bottom: 4px;
+  overflow-x: scroll; }
+
+.newMatch {
+  text-align: center;
+  margin: 0 4px;
+  display: inline-block;
+  color: #424242;
+  text-decoration: none; }
+  .newMatch div {
+    height: 74px;
+    width: 74px;
+    margin: 0 auto;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center; }
+  .newMatch span {
+    text-align: center;
+    font-weight: 500;
+    display: block;
+    font-size: 15px; }
+
+.noMessages {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  -webkit-box-align: center;
+  align-items: center;
+  flex: 1;
+  height: 70%; }
+  .noMessages div div {
+    width: 240px;
+    margin-top: 20px; }
+  .noMessages h3 {
+    font-size: 20px;
+    margin: 0 0 3px;
+    font-weight: 500; }
+  .noMessages span {
+    display: inline-block;
+    width: 85%;
+    color: #9b9b9b;
+    font-size: 14px;
+    font-weight: 200; }
+
+html {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  background-color: #f5f7fa; }
+
+.app {
+  margin: 0px auto;
+  position: relative;
+  min-height: 600px;
+  width: 410px;
+  height: 100vh;
+  overflow: hidden;
+  border: 1px solid #e5e5e5; }
+
+.master-root {
+  margin: 0 auto;
+  position: relative;
+  min-height: 600px;
+  height: 100vh;
+  width: 410px; }
+
+@media screen and (max-width: 600px) {
+  .app {
+    width: 100vw; }
+
+  .master-root {
+    width: 100%; } }
+.nav-link {
+  width: 30px;
+  height: 30px; }
+  .nav-link img {
+    width: auto;
+    height: 30px;
+    filter: grayscale(100%);
+    opacity: 0.1;
+    transform: scale(0.8); }
+
+.activeLink img {
+  transform: scale(1.1);
+  filter: none;
+  opacity: 1; }
+
+#Nav {
+  z-index: 1;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  transition: left 0.1s;
+  position: relative; }
+
+.navRight {
+  left: 45%; }
+
+.navLeft {
+  left: -45%; }
+
+.navMiddle {
+  left: 0; }
+
+.swipe {
+  margin-top: -50px;
+  pointer-events: none; }
+
+/*# sourceMappingURL=main.css.map */

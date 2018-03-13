@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import NoMessages from './NoMessages.js';
+import {NavLink} from 'react-router-dom';
 import axios from 'axios';
 
 export default class Messages extends Component {
@@ -24,15 +25,16 @@ export default class Messages extends Component {
 
 
     render() {
-
+        console.log("something")
         const matches = this.state.matches.map((match) => {
             return (
-            <a className="newMatch" href="">
+
+            <NavLink key={match.id} className="newMatch" exact to={`/convo/${match.id}`}>
                     <div style={{backgroundImage: `url(${match.pictures[0]})`}}>
                     {/* <img src={match.pictures[0]} alt=""/> */}
                 </div>
                 <span>{match.name}</span>
-            </a>
+            </NavLink>
             )
         })
 
