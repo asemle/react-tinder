@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import {Switch, Route} from 'react-router-dom';
 import Nav from './components/Nav.js' ;
 import Swipe from './components/Swipe.js';
+import Login from './components/Login.js';
 import Account from './components/Account.js';
 import Messages from './components/Messages.js';
 import Conversation from './components/Conversation.js';
+import MatchProfile from './components/MatchProfile.js';
 
 var me = {
   id: 0,
@@ -26,11 +28,13 @@ class App extends Component {
       <div className="app">
       <Nav />
         <Switch>
+          <Route exact path='/login' component={Login}/>
+          
           <Route exact path='/account' render={() => <Account myProfile={me}/>} />
           <Route exact path='/' component={Swipe} />
           <Route exact path='/messages' component={Messages} />
           <Route exact path='/convo/:id' component={Conversation}/>
-          
+          <Route exact path='/profile/:id' component={MatchProfile}/>
         </Switch>
       </div>
     );

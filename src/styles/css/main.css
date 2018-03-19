@@ -154,7 +154,7 @@ li {
     opacity: 1; }
 
 .loading {
-  height: 602px;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -275,7 +275,8 @@ li {
   border-top-right-radius: 34px;
   border-bottom-left-radius: 34px;
   font-size: 16px;
-  letter-spacing: .02em; }
+  letter-spacing: .02em;
+  background-color: #fff; }
   .editInfo:focus {
     outline: none; }
 
@@ -290,8 +291,7 @@ li {
     height: 44px;
     display: flex;
     justify-content: space-between;
-    border-bottom: 2px solid #e8e8e8;
-    top: 0; }
+    border-bottom: 2px solid #e8e8e8; }
     .Edit header span {
       min-width: 44px;
       line-height: 44px;
@@ -335,6 +335,11 @@ li {
     color: #424242; }
     .editWrap input:focus {
       outline: none; }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
 
 .wordCount {
   box-sizing: border-box;
@@ -622,6 +627,96 @@ li {
     font-size: 14px;
     font-weight: 200; }
 
+.convo {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  background-color: #fff; }
+  .convo nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0; }
+    .convo nav span {
+      width: 44px; }
+
+.backButton {
+  color: #FD486B;
+  font-size: 44px;
+  width: 44px; }
+
+.messageNavProfile {
+  text-decoration: none; }
+  .messageNavProfile div {
+    text-align: center;
+    width: 44px;
+    height: 44px;
+    overflow: hidden;
+    border-radius: 100%; }
+    .messageNavProfile div img {
+      min-width: 100%;
+      height: 100%; }
+  .messageNavProfile span {
+    color: grey;
+    font-size: 12px;
+    font-weight: 300; }
+
+.matchProfile {
+  position: absolute;
+  top: 0;
+  max-height: 100%;
+  overflow-y: scroll;
+  background-color: white; }
+
+.login {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-image: linear-gradient(180deg, #fd5068, #ff7854);
+  height: 100%;
+  z-index: 10;
+  padding: 50px 12px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  text-align: center; }
+
+.logoBox div {
+  margin: 10% 0 10%; }
+
+.logoText {
+  font-size: 64px; }
+
+.authBox {
+  margin: -10% 0 16px; }
+  .authBox .authButton {
+    background: linear-gradient(260deg, #337eb9, #384499);
+    -webkit-box-shadow: 0 2px 4px 0 rgba(116, 102, 99, 0.27);
+    box-shadow: 0 2px 4px 0 rgba(116, 102, 99, 0.27);
+    padding: 20px 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 100px; }
+    .authBox .authButton a {
+      text-decoration: none;
+      color: white; }
+
+.legalStuff {
+  opacity: 0.8;
+  margin: 12px 0 64px;
+  font-size: 12px;
+  font-weight: 200;
+  padding: 0 8px; }
+  .legalStuff span {
+    display: inline-block;
+    margin-bottom: 8px; }
+    .legalStuff span a {
+      color: white;
+      display: inline;
+      text-decoration: initial; }
+
 html {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -659,6 +754,10 @@ body {
 
   .master-root {
     width: 100%; } }
+@media screen and (min-width: 601px) {
+  .app {
+    height: 98vh;
+    margin: 1vh auto; } }
 .nav-link {
   width: 30px;
   height: 30px; }
@@ -675,7 +774,7 @@ body {
   opacity: 1; }
 
 #Nav {
-  z-index: 1;
+  z-index: 10;
   padding: 10px;
   display: flex;
   justify-content: space-between;

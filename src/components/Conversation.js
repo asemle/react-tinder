@@ -1,26 +1,36 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import ConvoNav from './ConvoNav';
+
 
 export default class Conversation extends Component {
-    constructor() {
-        super() 
+    constructor(props) {
+        super(props) 
 
         this.state = {
-            messages:[]
+            match: [],
+            messages:[],
+            id:props.match.params.id
+
         }
     }
 
     componentDidMount() {
-        axios.get()
+        axios.get(`/api/user/${this.state.id}`)
+        .then(res => {
+            this.setState({
+                match: res.data
+            })
+            console.log(res.data)
+        })
 
     }
 
     render() {
-        console.log("floofah")
 
         return (
             <div className="convo">
-                <h4>FOOOODODONNF</h4>
+                <ConvoNav match={this.state.match}/>
             </div>
         )
     }

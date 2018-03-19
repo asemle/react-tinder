@@ -17,7 +17,7 @@ class Swipe extends Component {
 
     }
     componentDidMount() {
-        axios.get('/api/users/1').then(response => {
+        axios.get('/api/users').then(response => {
             this.setState({
                 data: response.data
             })
@@ -55,7 +55,7 @@ class Swipe extends Component {
             theCards =
             <Cards onEnd={done} className='master-root' alertRight={<CustomAlertRight />} alertLeft={<CustomAlertLeft />}>
                 {this.state.data.map((item) =>
-                    <Card key={item.id} onSwipeLeft={() => swiped("nope")} onSwipeRight={() => swiped("yep")}>
+                    <Card key={item._id} onSwipeLeft={() => swiped("nope")} onSwipeRight={() => swiped("yep")}>
                         <div className={this.state.info === item.id ? "anotherdiv":''}>
                             <div className={this.state.info === item.id ?"somanydivs":''}>
                             <div id="picWrap" className={this.state.info === item.id ? 'fullScreen' : ''}>

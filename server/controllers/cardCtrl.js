@@ -31,9 +31,17 @@ module.exports = {
         // var db = firebase.database().ref('/users')
         //     let data = db;
         //     console.log(data)
-        //     res.status(200).send("OK")
-   
-        
+        //     res.status(200).send("OK")    
+    },
+    getOne: (req,res) => {
+        firebase.database().ref('users/').once('value').then(function (snapshot) {
+            var db = snapshot.val();
+            var match = db.filter((user) => user.id === parseInt(req.params.id))
+            console.log(match)
+            // console.log(db)
+            res.status(200).send(match)
+
+        }).catch((err) => res.status(500).send("fufjdfjkjk"))
     }
     // update: (req, res) => {
     //     console.log("req params id is a " + typeof +req.params.id)

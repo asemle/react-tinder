@@ -3,6 +3,7 @@
 @import 'account';
 @import 'profile';
 @import 'messages';
+@import 'login';
 
 html {
     -webkit-touch-callout: none;
@@ -45,6 +46,12 @@ body {
     }
     .master-root {
         width: 100%;
+    }
+}
+@media screen and (min-width:601px) {
+    .app {
+        height: 98vh;
+        margin: 1vh auto;
     }
 }
 

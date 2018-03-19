@@ -33,10 +33,10 @@ export default class ProfilePics extends Component {
             <div>
                 <div className="overlayTop">
                     <ul>
-                        {this.state.pictures.map((element, i) => { return <li key={i} className={i === this.state.index ? "activePic" : ""}></li> })}
+                        {this.props.pictures.map((element, i) => { return <li key={i} className={i === this.state.index ? "activePic" : ""}></li> })}
                     </ul>
                 </div>
-                <img className="proPic" src={this.state.pictures[this.state.index]} alt="" />
+                <img className="proPic" src={this.props.pictures[this.state.index]} alt="" />
                 <div className="leftButton" onClick={this.cycleLeft}></div>
                 <div className="rightButton" onClick={this.cycleRight}></div>
             </div>

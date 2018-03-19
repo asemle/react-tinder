@@ -5,7 +5,6 @@ import MyProfile from './MyProfile';
 import MyAccount from './MyAccount';
 import Edit from './Edit'
 
-import axios from 'axios';
 
 
 export default class Account extends Component {
@@ -22,9 +21,6 @@ export default class Account extends Component {
         this.setState({
             cmpt: x
         })
-    }
-    componentWillMount() {
-        
     }
     render() {
         var show;

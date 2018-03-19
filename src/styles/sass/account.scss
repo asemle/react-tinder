@@ -98,6 +98,7 @@
     border-bottom-left-radius: 34px;
     font-size: 16px;
     letter-spacing: .02em;
+    background-color: #fff;
     &:focus {
         outline: none
     }
@@ -115,7 +116,7 @@
         display: flex;
         justify-content: space-between;
         border-bottom: 2px solid #e8e8e8;
-        top: 0;
+
         span {
             min-width: 44px;
             line-height: 44px;
@@ -168,6 +169,12 @@
             outline: none;
         }
     }
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .wordCount {

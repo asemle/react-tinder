@@ -13,7 +13,7 @@ export default class Messages extends Component {
     }
 
     componentDidMount() {
-        axios.get('/api/users/:id')
+        axios.get('/api/users')
         .then(res => {
             this.setState({
                 matches:res.data
@@ -25,11 +25,10 @@ export default class Messages extends Component {
 
 
     render() {
-        console.log("something")
         const matches = this.state.matches.map((match) => {
             return (
 
-            <NavLink key={match.id} className="newMatch" exact to={`/convo/${match.id}`}>
+            <NavLink key={match._id} className="newMatch" exact to={`/convo/${match._id}`}>
                     <div style={{backgroundImage: `url(${match.pictures[0]})`}}>
                     {/* <img src={match.pictures[0]} alt=""/> */}
                 </div>
