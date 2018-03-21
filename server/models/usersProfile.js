@@ -16,9 +16,12 @@ var profilesProfile = new Schema({
     dislikes: Array,
     matches: Array,
     settings: Object,
-    fbid: String
+    id: String
 });
 
 
 module.exports = mongoose.model('profiles', profilesProfile);
+
+
+
 

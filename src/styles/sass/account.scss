@@ -116,7 +116,6 @@
         display: flex;
         justify-content: space-between;
         border-bottom: 2px solid #e8e8e8;
-
         span {
             min-width: 44px;
             line-height: 44px;
@@ -327,18 +326,37 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 
-//  <div className="Edit">
-//                 <header><span></span><span>Edit Info</span><span classNanme="done">Done</span></header>
-//                 <div className="editWrap">
-//                     <div className="picGrid">
-//                     </div>
-//                     <span>ABOUT ME</span>
-//                     <textarea name="about" id="" cols="30" rows="10"></textarea>
-//                     <span>CURRENT WORK</span>
-//                     <input type="text" name="" id=""/>
-//                     <span>SCHOOL</span>
-//                     <input type="text"/>
-//                     <span>GENDER</span>
-//                     <input type="text" name="" id=""/>
-//                 </div>
-//             </div>
+#PicturePopup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 99999999;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 410px;
+    font-size: 14px;
+    div {
+        width: 98%;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 10px;
+        margin: 0 auto 10px;
+    }
+    input {
+        font-size: 14px;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid grey;
+        &:focus {
+            outline: none;
+        }
+    }
+    button {
+        border: none;
+        font-size: 14px;
+    }
+    /* width: 100%; */
+}

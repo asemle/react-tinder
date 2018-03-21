@@ -62,7 +62,7 @@ class Swipe extends Component {
                                 <ProfilePics pictures={item.pictures}/>
                                 <div className="overlay" style={{ display: this.state.info !== item.id ? 'block' : 'none' }}>   
                                     <div className="overLayBottom">
-                                        <h2>{`${item.name}, `}<strong>{item.age}</strong></h2>
+                                            <h2>{`${item.name}`}<strong>{item.age ? ", " + item.age : ''}</strong></h2>
                                         <p>{item.job}</p>
                                         <span onClick={() => this.moreInfo(item.id)}>
                                             <i className="fas fa-info-circle"></i>

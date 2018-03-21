@@ -1,5 +1,10 @@
-import React, { Component } from 'react';
-import {Switch, Route} from 'react-router-dom';
+import React, {Component} from 'react';
+import {Switch, Route, withRouter} from 'react-router-dom';
+
+import { getUser } from './ducks/reducer.js';
+
+import { connect } from 'react-redux';
+
 import Nav from './components/Nav.js' ;
 import Swipe from './components/Swipe.js';
 import Login from './components/Login.js';
@@ -8,20 +13,13 @@ import Messages from './components/Messages.js';
 import Conversation from './components/Conversation.js';
 import MatchProfile from './components/MatchProfile.js';
 
-var me = {
-  id: 0,
-  name: "Jerry",
-  age: 35,
-  gender: "Male",
-  location: "3 miles",
-  pictures: ["https://i.chzbgr.com/full/8334924288/hCFACD046/","https://upload.wikimedia.org/wikipedia/en/f/f6/Jerry_Seinfeld.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdLp6tWjhgc2rYei-dr98WP802eDOEYuKS4jScAg3l-18UXUbR"],
-  job: "Stand-up Comedian",
-  school: "",
-  about: "There's more to life than making shallow, fairly obvious observations"
 
-}
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.getUser();
+  }
 
   render() {
     return (
@@ -29,8 +27,7 @@ class App extends Component {
       <Nav />
         <Switch>
           <Route exact path='/login' component={Login}/>
-          
-          <Route exact path='/account' render={() => <Account myProfile={me}/>} />
+          <Route exact path='/account' component={Account} />
           <Route exact path='/' component={Swipe} />
           <Route exact path='/messages' component={Messages} />
           <Route exact path='/convo/:id' component={Conversation}/>
@@ -41,4 +38,12 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    user: state.user,
+  }
+}
+
+export default withRouter(connect(mapStateToProps, {getUser})(App));
+
+

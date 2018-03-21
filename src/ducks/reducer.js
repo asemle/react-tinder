@@ -1,5 +1,9 @@
+import * as getMy from '../services/profileService';
+
+
 let initialState = {
-    user: {},
+    user: {pictures:[]},
+    loading: false,
     name: '',
     description: '',
     NAME: '',
@@ -18,6 +22,9 @@ let initialState = {
 
 // const RESET = "RESET";
 
+const GET_USER = "GET_USER";
+const GET_USER_PENDING = "GET_USER_PENDING";
+const GET_USER_FULFILLED = "GET_USER_FULFILLED";
 
 const UPDATE_NAME = "UPDATE_NAME";
 const UPDATE_AGE = "UPDATE_AGE";
@@ -45,8 +52,12 @@ export default function (state = initialState, action) {
         //     return Object.assign({}, state, { name: payload });
         // case UPDATE_DESCRIPTION:
         //     return Object.assign({}, state, { description: payload })
+        case GET_USER_PENDING:
+            return Object.assign({}, state, {loading:true})
+        case GET_USER_FULFILLED:
+            return Object.assign({}, state, {loading: false, user:action.payload})
         case UPDATE_NAME:
-            return Object.assign({}, state, { NAME: payload })
+            return Object.assign({}, state, { name: payload })
         case UPDATE_AGE:
             return Object.assign({}, state, { AGE: payload })
         case UPDATE_ABOUT:
@@ -102,6 +113,12 @@ export default function (state = initialState, action) {
 //         }
 //     }
 // }
+export function getUser() {
+    return {
+        type: GET_USER,
+        payload: getMy.profile()
+    }
+}
 
 export function updateName(name) {
     return {

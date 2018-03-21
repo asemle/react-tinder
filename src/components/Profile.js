@@ -13,7 +13,7 @@ export default class Profile extends Component {
             <div id="profile" className={this.props.info === pro.id ? 'open' : ''}>
                 <div className="profileHeader">
                     <div className="profileName">
-                        <h2>{`${pro.name}, `}<strong>{pro.age}</strong></h2>
+                        <h2>{`${pro.name}`}<strong>{pro.age ? ", " + pro.age : ''}</strong></h2>
                     </div>
                     <div className="profileJob" style={{ display: pro.job ? 'block' : 'none' }}>
                         <h4><i className="fas fa-briefcase"></i>{`${pro.job}`}</h4>

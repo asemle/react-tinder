@@ -32,7 +32,6 @@ export default class Nav extends Component {
                 <NavLink className="nav-link" activeClassName="activeLink" to='/messages'>
                     <img className='logo' src={messages} alt="" />
                 </NavLink>
-
             </header>
         )
     }

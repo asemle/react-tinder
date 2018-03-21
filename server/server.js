@@ -58,53 +58,39 @@ passport.use(new Auth0Strategy({
     clientID: CLIENT_ID,
     clientSecret: CLIENT_SECRET,
     callbackURL: CALLBACK_URL,
-    scope: 'openid profile'
+    scope: 'openid profile user_birthday location'
 }, (accessToken, refreshToken, extraParams, profile, done) => {
     console.log("hi" + profile.id)
-    profiles.findOne({ fbid: profile.id }).then(user => {
+    profiles.findOne({ id: profile.id }, function(err, user) {
         if (!user) {
-            console.log(profile)
-
-            Profile {
-                displayName: 'Andy Drew',
-                    id: 'facebook|146693219488480',
-                        user_id: 'facebook|146693219488480',
-                            name: { familyName: 'Drew', givenName: 'Andy' },
-                picture: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/27752532_102065837284552_151983587950281959_n.jpg?oh=4cba70ba90310c2fba282d1be1e8eef9&oe=5B4A9ADD',
-                    locale: 'en-US',
-                        nickname: 'Andy Drew',
-                            gender: 'male',
-                                _json:
-                {
-                    sub: 'facebook|146693219488480',
-                        given_name: 'Andy',
-                            family_name: 'Drew',
-                                nickname: 'Andy Drew',
-                                    name: 'Andy Drew',
-                                        picture: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/27752532_102065837284552_151983587950281959_n.jpg?oh=4cba70ba90310c2fba282d1be1e8eef9&oe=5B4A9ADD',
-                                            gender: 'male',
-                                                locale: 'en-US',
-                                                    updated_at: '2018-03-19T22:24:08.209Z'
-                },
-                _raw: '{"sub":"facebook|146693219488480","given_name":"Andy","family_name":"Drew","nickname":"Andy Drew","name":"Andy Drew","picture":"https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/27752532_102065837284552_151983587950281959_n.jpg?oh=4cba70ba90310c2fba282d1be1e8eef9&oe=5B4A9ADD","gender":"male","locale":"en-US","updated_at":"2018-03-19T22:24:08.209Z"}'
-            }
-
-
-
-            // var first = '';
-            // var last = '';
-            // if (profile.displayName.split(" ")[1]) {
-            //     first = profile.displayName.split(" ")[0];
-            //     last = profile.displayName.split(" ")[1];
-            // }
-            // db.create_user([first, last, "https://robohash.org/me", profile.id])
-            //     .then(userCreated => {
-            //         done(null, userCreated[0].id)
-            //     })
-        } else {
-            done(null, users[0].id)
+            profiles.collection.insert({
+                name: profile.name.givenName,
+                gender: profile.gender,
+                location: {},
+                pictures: [profile.picture],
+                job: '',
+                school: '',
+                about: '',
+                likes: [],
+                dislikes: [],
+                matches: [],
+                settings: {},
+                id: profile.id
+            }, function(err, res) {
+                if(err) {
+                    cosole.log(err)
+                }
+                else {
+                    done(null, res.ops[0].id)
+                }
+            })
+        } else if(user){
+            done(null, user.id)
         }
-    })
+        else {
+            console.log(err)
+        }
+    }).catch(err => {console.log(err)})
 }))
 
 passport.serializeUser((id, done) => {
@@ -112,16 +98,17 @@ passport.serializeUser((id, done) => {
 })
 
 passport.deserializeUser((id, done) => {
-    profile.findById([profile.id]).then(user => {
-        done(null, user[0]);
+    profiles.findOne({ id: id }).then(user => {
+        done(null, user);
     })
+    
 })
 
 app.get('/api/auth/login', passport.authenticate('auth0'))
 
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3005/#/',
-    failureRedirect: 'http://localhost:3005/#/auth'
+    successRedirect: 'http://localhost:3000/#/',
+    failureRedirect: 'http://localhost:3000/#/login'
 }))
 
 app.get('/api/auth/authenticated', (req, res) => {
@@ -155,6 +142,7 @@ app.get('/api/users', profilesCtrl.getProfiles)
 
 app.get('/api/user/:id', profilesCtrl.getOne)
 
+app.post('/api/user/:id', profilesCtrl.updateProfile)
 // function writeUserData(x) {
 //     x.forEach(user => {
 //         firebase.database().ref('users/' + user.id).set({
@@ -174,6 +162,7 @@ app.get('/api/user/:id', profilesCtrl.getOne)
 // writeUserData(data)
 const path = require('path')
 app.get('*', (req, res) => {
+    
     console.log(path.join(__dirname, '../build/index.html'))
     res.sendFile(path.join(__dirname, '../build/index.html'))
 })

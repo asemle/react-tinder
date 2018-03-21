@@ -18,7 +18,7 @@ export default class MyAccount extends Component {
                 <div className="circle" onClick={() => this.props.change("profile")}>
                     <img src={item.pictures[this.state.pictureIndex]} alt="fffgdsf" />
                 </div>
-                <h2>{`${item.name}, `}<strong>{item.age}</strong></h2>
+                <h2>{`${item.name}`}<strong>{item.age ? ", " + item.age: ''}</strong></h2>
                 <p>{item.job}</p>
                 <p>{item.school}</p>
                 <div className="accountBottom">
