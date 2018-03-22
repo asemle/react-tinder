@@ -30,7 +30,7 @@ module.exports = {
     updateProfile: (req, res) => {
         console.log(req.params.id + "... " + req.body)
         
-        profiles.update({id: req.params.id},{$set: {name:req.body.name, age:req.body.age, about: req.body.about, work: req.body.work, school:req.body.school, gender:req.body.gender, pictures:req.body.pictures}}, function(err, profile) {
+        profiles.update({id: req.params.id},{$set: {name:req.body.name, age:req.body.age, about: req.body.about, job: req.body.work, school:req.body.school, gender:req.body.gender, pictures:req.body.pictures}}, function(err, profile) {
             if(!err) {
                 console.log(profile)
                 res.send(profile)

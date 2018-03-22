@@ -11,24 +11,31 @@ export default class PicturePopup extends Component {
     }
 
     changePicValue(x){
-        this.setState({
-            picvalue: x
-        })
+        if(x) {
+            this.setState({
+               picvalue: x
+         })
+        } else {
+            this.setState({
+                picvalue: ''
+            })
+        }
     }   
 
     render() {
+        console.log(this.state.picvalue)
         var innerDiv
-        if(this.props.pic) {
+        if(typeof this.props.pic === "number") {
             innerDiv = <button onClick={() => this.props.changepic(this.props.pic)}>DELETE</button>
         } else {
-            innerDiv = <input onChange={(e) => this.changePicValue(e.target.value)} placeholder="PICTURE URL"/>
+            innerDiv = <input value={this.state.picvalue} onChange={(e) => this.changePicValue(e.target.value)} placeholder="PICTURE URL"/>
         }
         return (
             <div id="PicturePopup" className={this.props.pic !== false ? "open": ""}>
                 <div className="">{innerDiv}</div>
                 <div className="cancel">
-                    <button onClick={this.props.pic ? () => this.props.close() : () => {this.props.changepic(this.state.picvalue); this.props.close()}}
-                    >{this.props.pic ? "CANCEL" : "POST"}</button>
+                    <button onClick={typeof this.props.pic === "number" ? () => this.props.close() : () => { this.changePicValue(); this.props.changepic(this.state.picvalue)}}
+                    >{typeof this.props.pic === "number" ? "CANCEL" : "POST"}</button>
                 </div>
             </div>
         )

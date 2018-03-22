@@ -62,7 +62,6 @@ li {
   background-color: white;
   background-size: cover;
   position: absolute;
-  background: #F8F3F3;
   height: auto;
   width: 360px;
   margin: 0 auto;
@@ -368,7 +367,14 @@ input[type=number]::-webkit-outer-spin-button {
     overflow: hidden;
     position: relative; }
     .picGrid div img {
-      width: 100%; }
+      position: absolute;
+      top: -9999px;
+      right: -9999px;
+      bottom: -9999px;
+      left: -9999px;
+      margin: auto;
+      min-width: 100%;
+      height: 100%; }
     .picGrid div span {
       text-align: center;
       position: absolute;
@@ -445,6 +451,43 @@ input[type=number]::-webkit-outer-spin-button {
   color: #D2D2D2;
   font-size: 20px; }
 
+#PicturePopup {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 99999999;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 1vh;
+  bottom: 1vh;
+  width: 410px;
+  font-size: 14px;
+  /* width: 100%; */ }
+  #PicturePopup div {
+    width: 98%;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0 auto 10px; }
+  #PicturePopup input {
+    font-size: 14px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid grey; }
+    #PicturePopup input:focus {
+      outline: none; }
+  #PicturePopup button {
+    width: 100%;
+    text-align: center;
+    border: none;
+    color: grey;
+    font-size: 14px; }
+    #PicturePopup button:focus {
+      outline: none; }
+  #PicturePopup.open {
+    display: flex; }
+
 @media screen and (max-width: 600px) {
   .Edit header {
     width: 100vw; }
@@ -455,41 +498,16 @@ input[type=number]::-webkit-outer-spin-button {
   .account #picWrap.fullScreen {
     width: 100vw; }
     .account #picWrap.fullScreen img {
-      width: 100vw; }
+      max-height: 100%; }
   .account #profile {
     width: 100vw; }
     .account #profile.open {
-      margin-top: -35px; } }
-#PicturePopup {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  z-index: 99999999;
-  background-color: rgba(0, 0, 0, 0.4);
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 410px;
-  font-size: 14px;
-  /* width: 100%; */ }
-  #PicturePopup div {
-    width: 98%;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 0 auto 10px; }
-  #PicturePopup input {
-    font-size: 14px;
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid grey; }
-    #PicturePopup input:focus {
-      outline: none; }
-  #PicturePopup button {
-    border: none;
-    font-size: 14px; }
+      margin-top: -35px; }
 
+  #PicturePopup {
+    width: 100vw;
+    top: 0;
+    bottom: 0; } }
 #picWrap.fullScreen {
   width: 410px;
   z-index: 10000 !important;
@@ -583,9 +601,22 @@ input[type=number]::-webkit-outer-spin-button {
   left: -25px;
   z-index: 10000 !important;
   position: relative;
-  top: -10vh;
+  top: -13vh;
   padding-right: 20px; }
 
+@media (max-width: 600px) {
+  .anotherdiv {
+    width: 100vw;
+    left: calc((100vw - 360px)/-2);
+    padding-right: 0; }
+
+  #picWrap.fullScreen {
+    width: 100%; }
+    #picWrap.fullScreen .proPic {
+      min-height: 100%; }
+
+  #profile.open {
+    width: 100%; } }
 ::-webkit-scrollbar {
   display: none; }
 

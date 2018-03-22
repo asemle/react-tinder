@@ -10,7 +10,7 @@ const Auth0Strategy = require('passport-auth0');
 const checkForSession = require('./middlewares/checkForSession');
 
 const mongoose = require('mongoose');
-var firebase = require("firebase");
+
 
 const {
     SERVER_PORT,
@@ -38,7 +38,7 @@ const profilesCtrl = require('./controllers/profilesCtrl.js')
 
 const app = express();
 var port = SERVER_PORT || 3005;
-const cardCtrl = require(__dirname + "/controllers/cardCtrl")
+
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -107,8 +107,8 @@ passport.deserializeUser((id, done) => {
 app.get('/api/auth/login', passport.authenticate('auth0'))
 
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/#/',
-    failureRedirect: 'http://localhost:3000/#/login'
+    successRedirect: process.env.LOGIN,
+    failureRedirect: process.env.LOGIN + 'login'
 }))
 
 app.get('/api/auth/authenticated', (req, res) => {

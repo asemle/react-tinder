@@ -19,10 +19,9 @@ export default class Login extends Component {
                 </div>
                 <div className="authBox">
                     <div className="authButton">
-                        <a className="authLink" href="http://localhost:3005/api/auth/login">Log in with facebook</a>
+                        <a className="authLink" href={process.env.REACT_APP_LOGIN}>Log in with facebook</a>
                     </div>
                 </div>
-
                 <div className="legalStuff">
                     <span>We don't post anything to Facebook.</span>
                     <div>

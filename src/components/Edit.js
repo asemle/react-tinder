@@ -29,24 +29,33 @@ class Edit extends Component{
         });
     }
     changePic(x) {
+        var newPics;
         if(typeof x === "number") {
-            var newPics = this.state.pictures;
+            newPics = this.state.pictures;
             newPics.splice(x, 1)
             this.setState({
-                pictures: newPics
+                pictures: newPics,
+                showpopup: false
             })
         } else {
-            var newPics = this.state.pictures;
+            newPics = this.state.pictures;
             newPics.push(x)
             this.setState({
-                pictures: newPics
+                pictures: newPics,
+                showpopup: false
             })
         }
     }
-    openPopup(image) {
-        this.setState({
-            showpopup: image
-        })
+    openPopup(index) {
+        if(this.state.pictures[index]) {
+            this.setState({
+                showpopup: index,
+            })
+        } else {
+            this.setState({
+                showpopup: true,
+            })
+        }
     }
     closePopup() {
         this.setState({
@@ -61,14 +70,13 @@ class Edit extends Component{
         console.log(this.state)
         function updateUser(state) {
             axios.post(`/api/user/${state.id}`, {
-                id: this.state.id,
-                pictures: this.state.pictures,
-                name: this.state.name,
-                age: this.state.age,
-                about: this.state.about,
-                work: this.state.work,
-                school: this.state.school,
-                gender: this.state.gender}).then((res) => {
+                pictures: state.pictures,
+                name: state.name,
+                age: state.age,
+                about: state.about,
+                work: state.work,
+                school: state.school,
+                gender: state.gender}).then((res) => {
                 getUserr();
             })
         }
@@ -81,33 +89,33 @@ class Edit extends Component{
                     <div className="picGrid">
                         <div className="item-a">
                             <img src={this.state.pictures[0]} alt=""/>
-                            <span className={this.state.pictures[0] ? "picButton": "removePic"}><i className="fas fa-plus-circle"></i><i className="fas fa-times"></i></span>
+                            <span onClick={() => this.openPopup(0)}className={this.state.pictures[0] ? "picButton": "removePic"}><i className="fas fa-plus-circle"></i><i className="fas fa-times"></i></span>
                         </div>
                         <div className="item-b">
                             <img src={this.state.pictures[1]} alt=""/>
-                            <span className={this.state.pictures[1] ? "picButton": "removePic"}><i className="fas fa-plus-circle"></i><i className="fas fa-times"></i></span>
+                            <span onClick={() => this.openPopup(1)}className={this.state.pictures[1] ? "picButton": "removePic"}><i className="fas fa-plus-circle"></i><i className="fas fa-times"></i></span>
                         </div>
                         <div className="item-c">
                             <img src={this.state.pictures[2]} alt=""/>
-                            <span className={this.state.pictures[2] ? "picButton": "removePic"}><i className="fas fa-plus-circle"></i><i className="fas fa-times"></i></span>
+                            <span onClick={() => this.openPopup(2)}className={this.state.pictures[2] ? "picButton": "removePic"}><i className="fas fa-plus-circle"></i><i className="fas fa-times"></i></span>
                         </div>
                         <div className="item-d">
                             <img src={this.state.pictures[3]} alt=""/>
-                            <span className={this.state.pictures[3] ? "picButton": "removePic"}><i className="fas fa-plus-circle"></i><i className="fas fa-times"></i></span>
+                            <span onClick={() => this.openPopup(3)}className={this.state.pictures[3] ? "picButton": "removePic"}><i className="fas fa-plus-circle"></i><i className="fas fa-times"></i></span>
                         </div>
                         <div className="item-e">
                             <img src={this.state.pictures[4]} alt=""/>
-                            <span className={this.state.pictures[4] ? "picButton": "removePic"}><i className="fas fa-plus-circle"></i><i className="fas fa-times"></i></span>
+                            <span onClick={() => this.openPopup(4)}className={this.state.pictures[4] ? "picButton": "removePic"}><i className="fas fa-plus-circle"></i><i className="fas fa-times"></i></span>
                         </div>
                         <div className="item-f">
                             <img src={this.state.pictures[5]} alt=""/>
-                            <span className={this.state.pictures[5] ? "picButton": "removePic"}><i className="fas fa-plus-circle"></i><i className="fas fa-times"></i></span>
+                            <span onClick={() => this.openPopup(5)}className={this.state.pictures[5] ? "picButton": "removePic"}><i className="fas fa-plus-circle"></i><i className="fas fa-times"></i></span>
                         </div>
                     </div>
                     <span className="inputTitle">NAME</span>
                     <input type="text" onChange={(e) => this.handleChange(e, 'name')} value={this.state.name} ></input><i className="fas fa-angle-right"></i>
                     <span className="inputTitle">AGE</span>
-                    <input type="number" min="18" max="100" onChange={(e) => this.handleChange(e, 'age')} value={this.state.age}    ></input><i className="fas fa-angle-right"></i>
+                    <input type="number" min="18" max="100" onChange={(e) => this.handleChange(e, 'age')} value={parseInt(this.state.age)}></input><i className="fas fa-angle-right"></i>
                     <span className="inputTitle">ABOUT ME</span>
                     <textarea onChange={(e) => this.handleChange(e, 'about')} value={this.state.about} name="about" maxLength="500" id="" cols="30" rows="7"></textarea>
                     <div className="wordCount">{500 - this.state.about.length}</div>

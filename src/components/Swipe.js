@@ -55,7 +55,7 @@ class Swipe extends Component {
             theCards =
             <Cards onEnd={done} className='master-root' alertRight={<CustomAlertRight />} alertLeft={<CustomAlertLeft />}>
                 {this.state.data.map((item) =>
-                    <Card key={item._id} onSwipeLeft={() => swiped("nope")} onSwipeRight={() => swiped("yep")}>
+                    <Card key={item._id} id={this.state.info === item.id ? "cardFull" : ''} onSwipeLeft={() => swiped("nope")} onSwipeRight={() => swiped("yep")}>
                         <div className={this.state.info === item.id ? "anotherdiv":''}>
                             <div className={this.state.info === item.id ?"somanydivs":''}>
                             <div id="picWrap" className={this.state.info === item.id ? 'fullScreen' : ''}>
