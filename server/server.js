@@ -13,7 +13,6 @@ const mongoose = require('mongoose');
 
 
 const {
-    SERVER_PORT,
     SESSION_SECRET,
     DOMAIN,
     CLIENT_ID,
@@ -37,7 +36,7 @@ const profilesCtrl = require('./controllers/profilesCtrl.js')
 
 
 const app = express();
-var port = SERVER_PORT || 3005;
+var port = process.env.PORT || 3005;
 
 app.use(cors());
 app.use(bodyParser.json());
