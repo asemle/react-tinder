@@ -26,11 +26,11 @@ export default class Conversation extends Component {
     componentDidMount() {
         axios.get(`/api/user/${this.state.id}`)
             .then(res => {
+                console.log(res.data)
                 this.setState({
-                    match: res.data[0],
-                    pictures: res.data[0].pictures
+                    match: res.data,
+                    pictures: res.data.pictures
                 })
-                console.log(res.data[0])
             })
 
     }
@@ -40,7 +40,7 @@ export default class Conversation extends Component {
         const pictures = this.state.pictures;
 
         if (this.state.redirect) {
-            return <Redirect push to={`/convo/${match.id}`} />;
+            return <Redirect push to={`/convo/${match._id}`} />;
         }
 
         return (
@@ -48,7 +48,7 @@ export default class Conversation extends Component {
                 <div id="picWrap" className='fullScreen'>
                     <ProfilePics pictures={pictures} />
                 </div>
-                <Profile info={match.id} close={() => this.handleOnClick()} profile={match}></Profile>
+                <Profile info={match._id} close={() => this.handleOnClick()} profile={match}></Profile>
             </div>
         )
     }

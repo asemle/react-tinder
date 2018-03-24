@@ -38,7 +38,16 @@ module.exports = {
                 console.log(err)
             }
         })
-
-
+    },
+    updateSwipes: (req, res) => {
+        console.log(req.params.id + "... " + req.body)
+        profiles.update({ id: req.params.id }, { $set: {likes: req.body.likes, dislikes: req.body.dislikes, matches: req.body.matches} }, function (err, profile) {
+            if (!err) {
+                console.log(profile)
+                res.send(profile)
+            } else {
+                console.log(err)
+            }
+        })
     }
 }

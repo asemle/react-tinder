@@ -142,6 +142,9 @@ app.get('/api/users', profilesCtrl.getProfiles)
 app.get('/api/user/:id', profilesCtrl.getOne)
 
 app.post('/api/user/:id', profilesCtrl.updateProfile)
+
+app.post('/api/user/swipes/:id', profilesCtrl.updateSwipes)
+
 // function writeUserData(x) {
 //     x.forEach(user => {
 //         firebase.database().ref('users/' + user.id).set({

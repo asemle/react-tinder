@@ -1,4 +1,4 @@
-import * as getMy from '../services/profileService';
+import profileService from '../services/profileService';
 
 
 let initialState = {
@@ -25,6 +25,8 @@ let initialState = {
 const GET_USER = "GET_USER";
 const GET_USER_PENDING = "GET_USER_PENDING";
 const GET_USER_FULFILLED = "GET_USER_FULFILLED";
+
+const UPDATE_USER = "UPDATE_USER"
 
 const UPDATE_NAME = "UPDATE_NAME";
 const UPDATE_AGE = "UPDATE_AGE";
@@ -56,6 +58,9 @@ export default function (state = initialState, action) {
             return Object.assign({}, state, {loading:true})
         case GET_USER_FULFILLED:
             return Object.assign({}, state, {loading: false, user:action.payload})
+        case UPDATE_USER:
+            return Object.assign({}, state, { user: payload })
+
         case UPDATE_NAME:
             return Object.assign({}, state, { name: payload })
         case UPDATE_AGE:
@@ -116,7 +121,15 @@ export default function (state = initialState, action) {
 export function getUser() {
     return {
         type: GET_USER,
-        payload: getMy.profile()
+        payload: profileService.getUser()
+    }
+}
+
+export function updateUser(user) {
+    profileService.updateSwipes(user)
+    return {
+        type: UPDATE_USER,
+        payload: user
     }
 }
 

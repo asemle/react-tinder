@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
 import Cards, { Card } from 'react-swipe-card';
 import axios from 'axios';
-import Loading from './Loading.js'
-import ProfilePics from './ProfilePics.js'
-import Profile from './Profile.js'
+import Loading from './Loading.js';
+import ProfilePics from './ProfilePics.js';
+import Profile from './Profile.js';
 
+import MatchScreen from './MatchScreen.js';
+
+import { updateUser } from '../ducks/reducer.js';
+
+import { connect } from 'react-redux';
 
 
 class Swipe extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            user: props.user,
             data: null,
-            info: false
+            info: false,
+            matchscreen:false
         }
 
     }
@@ -33,11 +40,40 @@ class Swipe extends Component {
         console.log(i)
         console.log(this.state.info)
     }
+    close() {
+        this.setState({
+            matchscreen: false
+        })
+    }
 
     render() {
-        let swiped = (e) => {
-            console.log(e);
+        let itsaMatch = (user, id, picture, name) => {
+            this.setState({
+                matchscreen:{user, id, picture, name}
+            })
         }
+
+        let swiped = (x, id, picture, name, likes) => {
+            if(!x) {
+                console.log(this.props.user)
+                var user = this.props.user;
+                user.dislikes.push(id);
+                this.props.updateUser(user);
+
+            } else {
+                var user = this.props.user;
+                user.likes.push(id);
+                // if(likes.indexOf(user.id) !== -1) {
+                    user.matches.push(id);
+                    itsaMatch(user, id, picture, name)
+                // }
+                
+                this.props.updateUser(user);
+            }
+        }
+
+
+
         const CustomAlertLeft = () => <span>NOPE</span>
         const CustomAlertRight = () => <span>LIKE</span>
         
@@ -49,13 +85,13 @@ class Swipe extends Component {
 
         let theCards = <div> Loadi</div>
         
-        
+        console.log(this.props.user)
         console.log(this.state.data)
         if (this.state.data) {
             theCards =
             <Cards onEnd={done} className='master-root' alertRight={<CustomAlertRight />} alertLeft={<CustomAlertLeft />}>
                 {this.state.data.map((item) =>
-                    <Card key={item._id} id={this.state.info === item.id ? "cardFull" : ''} onSwipeLeft={() => swiped("nope")} onSwipeRight={() => swiped("yep")}>
+                    <Card key={item._id} id={this.state.info === item.id ? "cardFull" : ''} onSwipeLeft={() => swiped(false, item._id)} onSwipeRight={() => swiped(true, item._id, item.pictures[0], item.name, item.likes)}>
                         <div className={this.state.info === item.id ? "anotherdiv":''}>
                             <div className={this.state.info === item.id ?"somanydivs":''}>
                             <div id="picWrap" className={this.state.info === item.id ? 'fullScreen' : ''}>
@@ -81,14 +117,27 @@ class Swipe extends Component {
             theCards = <Loading />
         }
 
+        var match = '';
+        if(this.state.matchscreen) {
+            match = <MatchScreen close={() => this.close()} data={this.state.matchscreen} />
+        }
         return (
             <div className="swipe">
             {theCards}
+
+            {match}
             </div>
         )
     }
 }
 
-export default Swipe
+function mapStateToProps(state) {
+    return {
+        user: state.user,
+    }
+}
+
+export default connect(mapStateToProps, { updateUser })(Swipe);
+
 
 

@@ -12,7 +12,7 @@ export default function ConvoNav(props) {
 
 </NavLink>
 
-            <NavLink className="messageNavProfile" to={`/profile/${match.id}`}><div><img src={match.pictures[0]} alt={match.name}/></div><span>{match.name}</span></NavLink>
+            <NavLink className="messageNavProfile" to={`/profile/${match._id}`}><div><img src={match.pictures[0]} alt={match.name}/></div><span>{match.name}</span></NavLink>
 
             <span></span>
         </nav>
