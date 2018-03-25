@@ -49,5 +49,17 @@ module.exports = {
                 console.log(err)
             }
         })
+    },
+    getMatches: (req, res) => {
+        var arr = req.body.matches.map((el) => el.id)
+        console.log(arr)
+        profiles.find({ id: { $in: arr } }, function (err, profiles) {
+            if (!err) {
+                res.send(profiles);
+            }
+            else {
+                console.log(err)
+            }
+        });
     }
 }

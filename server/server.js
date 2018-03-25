@@ -29,6 +29,7 @@ mongoose.connection.on('connected', function () {
 })
 
 
+
 const profiles = require('./models/usersProfile.js');
 
 const profilesCtrl = require('./controllers/profilesCtrl.js')
@@ -140,6 +141,9 @@ app.get('/api/users', profilesCtrl.getProfiles)
 
 
 app.get('/api/user/:id', profilesCtrl.getOne)
+
+app.put('/api/matches', profilesCtrl.getMatches)
+
 
 app.post('/api/user/:id', profilesCtrl.updateProfile)
 

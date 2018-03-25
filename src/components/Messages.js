@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import NoMessages from './NoMessages.js';
 import {NavLink} from 'react-router-dom';
+import { getUser } from '../ducks/reducer.js';
+import { connect } from 'react-redux';
 import axios from 'axios';
 
-export default class Messages extends Component {
-    constructor() {
-        super();
+class Messages extends Component {
+    constructor(props) {
+        super(props);
 
         this.state = {
             matches: []
@@ -13,7 +15,8 @@ export default class Messages extends Component {
     }
 
     componentDidMount() {
-        axios.get('/api/users')
+        const user = this.props.user;
+        axios.put('/api/matches', {'matches':user.matches})
         .then(res => {
             this.setState({
                 matches:res.data
@@ -51,3 +54,10 @@ export default class Messages extends Component {
         )
     }
 }
+function mapStateToProps(state) {
+    return {
+        user: state.user,
+    }
+}
+
+export default connect(mapStateToProps, { getUser })(Messages);

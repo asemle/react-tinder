@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Switch, Route, withRouter} from 'react-router-dom';
-
 import { getUser } from './ducks/reducer.js';
+
 
 import { connect } from 'react-redux';
 

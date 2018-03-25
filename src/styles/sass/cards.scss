@@ -78,7 +78,7 @@
         width: 360px;
         margin: 0 auto;
         transition: box-shadow .3s;
-        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.01), 0 4px 5px rgba(0, 0, 0, 0.01);
+        box-shadow: 1px 2px 0px 1px rgba(100, 100, 100, 0.002);
         border-radius: 8px;
     }
 
@@ -89,7 +89,7 @@
     }
 
     .inactive {
-        box-shadow: 1px 1px 1px 2px rgba(100, 100, 100, 0.02);
+        box-shadow: 1px 2px 0px 1px rgba(100, 100, 100, 0.002);
     }
 
     .alert {
@@ -231,7 +231,7 @@
             animation: slideLeft 0.4s;
         }
         button {
-            background: linear-gradient(262deg, #ff7854, #fd267d);
+            background: linear-gradient(262deg, #ff7854, hsl(336, 98%, 57%));
             color: white;
             width: 80%;
             height: 54px;
@@ -239,6 +239,8 @@
             padding: 0 24px;
             border-radius: 100px;
             border: none;
+            font-size: 14px;
+            font-weight: 200;
             &.keepswiping {
                 margin-top: 24px;
                 background: rgba(0, 0, 0, 0);

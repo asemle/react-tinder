@@ -133,6 +133,14 @@ export function updateUser(user) {
     }
 }
 
+export function getMatches(user) {
+    profileService.getMatches(user)
+    return {
+        type: UPDATE_USER,
+        payload: user
+    }
+}
+
 export function updateName(name) {
     return {
         type: UPDATE_NAME,
