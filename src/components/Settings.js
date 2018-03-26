@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
-import PicturePopup from './PicturePopup.js';
 
 import { getUser } from '../ducks/reducer.js';
 
@@ -11,57 +10,41 @@ class Settings extends Component {
 
     constructor(props) {
         super(props);
+        var agerange = [0, 100],
+            gender='',
+            distance=100
+        if(props.item.settings) {
+            agerange = props.item.settings.agerange;
+            gender = props.item.settings.gender;
+            distance = props.item.settings.distance;
+        } 
+        
         this.state = {
             id: props.item.id,
-            pictures: props.item.pictures,
-            name: props.item.name,
-            age: props.item.age,
-            about: props.item.about,
-            work: props.item.work,
-            school: props.item.school,
-            gender: props.item.gender,
-            showpopup: false
+            settings: props.item.settings,
+            agerange: agerange,
+            gender: gender,
+            distance: distance
         }
     }
-    handleChange(event, property) {
+    handleChange(event, property, index) {
+        console.log(property + " " + event.target.value)
+
+        if(typeof index === 'number') {
+            var agearr = this.state.agerange;
+            agearr[index] = event.target.value;
+            this.setState({
+                agerange: agearr
+            })
+        } else {
         this.setState({
+
             [property]: event.target.value
         });
     }
-    changePic(x) {
-        var newPics;
-        if (typeof x === "number") {
-            newPics = this.state.pictures;
-            newPics.splice(x, 1)
-            this.setState({
-                pictures: newPics,
-                showpopup: false
-            })
-        } else {
-            newPics = this.state.pictures;
-            newPics.push(x)
-            this.setState({
-                pictures: newPics,
-                showpopup: false
-            })
-        }
     }
-    openPopup(index) {
-        if (this.state.pictures[index]) {
-            this.setState({
-                showpopup: index,
-            })
-        } else {
-            this.setState({
-                showpopup: true,
-            })
-        }
-    }
-    closePopup() {
-        this.setState({
-            showpopup: false
-        })
-    }
+    
+
 
 
     render() {
@@ -69,67 +52,52 @@ class Settings extends Component {
 
         console.log(this.state)
         function updateUser(state) {
-            axios.post(`/api/user/${state.id}`, {
-                pictures: state.pictures,
-                name: state.name,
-                age: state.age,
-                about: state.about,
-                work: state.work,
-                school: state.school,
-                gender: state.gender
+
+            axios.post(`/api/user/settings/${state.id}`, {
+                settings: {"agerange":state.agerange, "gender":state.gender, "distance": state.distance}
             }).then((res) => {
                 getUserr();
             })
         }
         return (
             <div className="Edit">
+                
+                <header><span></span><span>Settings</span><span className="done" onClick={() => { updateUser(this.state); this.props.change("profile") }}>Done</span></header>
 
-                <header><span></span><span>Edit Info</span><span className="done" onClick={() => { updateUser(this.state); this.props.change("profile") }}>Done</span></header>
+                <div className="settingsWrap">
+                    <h2>DISCOVERY SETTINGS</h2>
+                    <div>
+                        <span className="inputTitle">Maximum Distance</span>
+                        <span className="inputTitle sliderValue">{this.state.distance+"mi."}</span>
+                        <input type="range" min="0" max="100" className="slider slider1" onChange={(e) => this.handleChange(e, 'distance')} value={this.state.distance} ></input>
 
-                <div className="editWrap">
-                    <div className="picGrid">
-                        <div className="item-a">
-                            <img src={this.state.pictures[0]} alt="" />
-                            <span onClick={() => this.openPopup(0)} className={this.state.pictures[0] ? "picButton" : "removePic"}><i className="fas fa-plus-circle"></i><i className="fas fa-times"></i></span>
+
+
+                        <span className="inputTitle">Gender</span>
+                        <div className="genderSelect">
+                            <select name="gender" onChange={(e) => this.handleChange(e, 'gender')} value={this.state.gender}>
+                            <option value="male">Men</option>
+                            <option value="female">Women</option>
+                            <option value="">Gender is a social construct</option>
+                        </select>
                         </div>
-                        <div className="item-b">
-                            <img src={this.state.pictures[1]} alt="" />
-                            <span onClick={() => this.openPopup(1)} className={this.state.pictures[1] ? "picButton" : "removePic"}><i className="fas fa-plus-circle"></i><i className="fas fa-times"></i></span>
-                        </div>
-                        <div className="item-c">
-                            <img src={this.state.pictures[2]} alt="" />
-                            <span onClick={() => this.openPopup(2)} className={this.state.pictures[2] ? "picButton" : "removePic"}><i className="fas fa-plus-circle"></i><i className="fas fa-times"></i></span>
-                        </div>
-                        <div className="item-d">
-                            <img src={this.state.pictures[3]} alt="" />
-                            <span onClick={() => this.openPopup(3)} className={this.state.pictures[3] ? "picButton" : "removePic"}><i className="fas fa-plus-circle"></i><i className="fas fa-times"></i></span>
-                        </div>
-                        <div className="item-e">
-                            <img src={this.state.pictures[4]} alt="" />
-                            <span onClick={() => this.openPopup(4)} className={this.state.pictures[4] ? "picButton" : "removePic"}><i className="fas fa-plus-circle"></i><i className="fas fa-times"></i></span>
-                        </div>
-                        <div className="item-f">
-                            <img src={this.state.pictures[5]} alt="" />
-                            <span onClick={() => this.openPopup(5)} className={this.state.pictures[5] ? "picButton" : "removePic"}><i className="fas fa-plus-circle"></i><i className="fas fa-times"></i></span>
-                        </div>
+
+                        <span className="inputTitle">Age Range</span>
+
+                        <span className="inputTitle sliderValue">{`${this.state.agerange[0]} - ${this.state.agerange[1]}` }</span>
+
+                        <input type="range" min={this.state.agerange[0]} max="100" className="slider" onChange={(e) => this.handleChange(e, 'agerange', 1)} value={this.state.agerange[1]}/>
+                        <input type="range" min="18" max={this.state.agerange[1]}  className="slider slider2" onChange={(e) => this.handleChange(e, 'agerange', 0)} value={this.state.agerange[0]}
+                        ></input>
                     </div>
-                    <span className="inputTitle">NAME</span>
-                    <input type="text" onChange={(e) => this.handleChange(e, 'name')} value={this.state.name} ></input><i className="fas fa-angle-right"></i>
-                    <span className="inputTitle">AGE</span>
-                    <input type="number" min="18" max="100" onChange={(e) => this.handleChange(e, 'age')} value={parseInt(this.state.age)}></input><i className="fas fa-angle-right"></i>
-                    <span className="inputTitle">ABOUT ME</span>
-                    <textarea onChange={(e) => this.handleChange(e, 'about')} value={this.state.about} name="about" maxLength="500" id="" cols="30" rows="7"></textarea>
-                    <div className="wordCount">{500 - this.state.about.length}</div>
-                    <span className="inputTitle">CURRENT WORK</span>
-                    <input type="text" name="" id="" onChange={(e) => this.handleChange(e, 'work')} value={this.state.work}></input><i className="fas fa-angle-right"></i>
-                    <span className="inputTitle">SCHOOL</span>
-                    <input type="text" onChange={(e) => this.handleChange(e, 'school')} value={this.state.school} ></input><i className="fas fa-angle-right"></i>
+                    
+                    
+            
+                   
 
-                    <span className="inputTitle">GENDER</span>
-                    <input onChange={(e) => this.handleChange(e, 'gender')} value={this.state.gender} type="text" name="" id=""></input><i className="fas fa-angle-right"></i>
+                    
                 </div>
 
-                <PicturePopup pic={this.state.showpopup} changepic={(x) => this.changePic(x)} close={() => this.closePopup()} />
             </div>
 
         )

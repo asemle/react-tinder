@@ -20,7 +20,7 @@ class Messages extends Component {
         axios.put('/api/matches', {'matches':user.matches})
         .then(res => {
             this.setState({
-                matches:res.data
+                matches:[...res.data]
             })
             console.log(res.data)
         })
@@ -29,7 +29,11 @@ class Messages extends Component {
 
 
     render() {
-        const matches = this.state.matches.map((match) => {
+        let messages = [];
+        const newmatches = this.state.matches.map((match) => {
+            if(match.matches.find((match) => match.id === this.state.user.id).messages.length === 0) {
+                console.log("yes")
+            
             return (
 
             <NavLink key={match._id} className="newMatch" exact to={`/convo/${match._id}`}>
@@ -39,18 +43,42 @@ class Messages extends Component {
                 <span>{match.name}</span>
             </NavLink>
             )
+            } else {
+                messages.push(match)
+            }
         })
 
-        const messages = <NoMessages/>
+        const nomessages = <NoMessages/>
 
+        messages = messages.map((match) => {
+                return (
 
+                    <NavLink key={match._id} className="newMatch" exact to={`/convo/${match._id}`}>
+                        <div style={{ backgroundImage: `url(${match.pictures[0]})` }}>
+                            {/* <img src={match.pictures[0]} alt=""/> */}
+                        </div>
+                        <section className="contentBox">
+                             <h4>{match.name}</h4>
+                              <span>{match.matches.find((match) => match.id === this.state.user.id).messages[0].content}</span>
+                        </section>
+                    </NavLink>
+                )
+            })
+
+console.log(messages)
         return (
             <div className="messagesWrap">
-                <div className="matchesTitle"><span>New Matches</span></div>
+                <div className="matchesTitle"><span style={newmatches.length !== 0 ? {display:"block"}:{display:"none"}}>New Matches</span></div>
                 <div className="matchList">
-                    {matches}
+                    {newmatches}
                 </div>
-                {messages}
+                {messages.length === 0 ? nomessages:''}
+
+                <div className="messagesBox">
+                    <div className="matchesTitle"><span style={messages.length !== 0 ? { display: "block" } : { display: "none" }}>Messages</span></div>
+                    {messages}
+                </div>
+                
             </div>
         )
     }

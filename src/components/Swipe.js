@@ -89,9 +89,17 @@ class Swipe extends Component {
         console.log(this.props.user)
         console.log(this.state.data)
         if (this.state.data) {
+            var profiles = this.state.data.filter((profile) => {
+                if(this.props.user.settings.gender) {
+                    return profile.gender === this.props.user.settings.gender
+                }
+                else {
+                    return profile;
+                }
+            })
             theCards =
             <Cards onEnd={done} className='master-root' alertRight={<CustomAlertRight />} alertLeft={<CustomAlertLeft />}>
-                {this.state.data.map((item) =>
+                {profiles.map((item) =>
                     <Card key={item._id} id={this.state.info === item.id ? "cardFull" : ''} onSwipeLeft={() => swiped(false, item._id)} onSwipeRight={() => swiped(true, item._id, item.pictures[0], item.name, item.likes)}>
                         <div className={this.state.info === item.id ? "anotherdiv":''}>
                             <div className={this.state.info === item.id ?"somanydivs":''}>

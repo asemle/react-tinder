@@ -147,6 +147,8 @@ app.put('/api/matches', profilesCtrl.getMatches)
 
 app.post('/api/user/:id', profilesCtrl.updateProfile)
 
+app.post('/api/user/settings/:id', profilesCtrl.updateSettings)
+
 app.post('/api/user/swipes/:id', profilesCtrl.updateSwipes)
 
 app.post('/api/match/:id', profilesCtrl.sendMatch)

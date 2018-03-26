@@ -142,3 +142,46 @@
         width: 100%;
     }
 }
+
+.messagesBox {
+    box-sizing: border-box;
+    padding: 0 8px;
+    .newMatch {
+        text-align: left;
+        height: 90px;
+        width: 100%;
+        div {
+            width: 90px;
+            height: 90px;
+        }
+        span {
+            display: inline-block;
+            height: 20px;
+            width: calc(100% - 1px);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding-left: 10px;
+            color: #7c7c7c;
+            font-weight: 300;
+        }
+    }
+    .contentBox {
+        position: absolute;
+        height: 90px;
+        display: inline-block;
+        width: calc(100% - 130px);
+        margin:0 20px;
+        border-bottom: 1px solid #e3e3e3;
+    }
+    h4 {
+        margin: 18px 0 8px;
+        font-weight: 400;
+    }
+} // <NavLink key={match._id} className="newMatch" exact to={`/convo/${match._id}`}>
+//     <div style={{ backgroundImage: `url(${match.pictures[0]})` }}>
+//         {/* <img src={match.pictures[0]} alt=""/> */}
+//     </div>
+//     <span>{match.name}</span>
+//     <span>{match.matches.find((match) => match.id === this.state.user.id).messages[0].content}</span>
+// </NavLink>
