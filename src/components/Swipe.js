@@ -62,9 +62,10 @@ class Swipe extends Component {
 
             } else {
                 var user = this.props.user;
+                var time = new Date();
                 user.likes.push(id);
                 // if(likes.indexOf(user.id) !== -1) {
-                    user.matches.push({"id":id, 'messages':[]});
+                    user.matches.push({"id":id, 'messages':[], 'matchTime':time});
                     itsaMatch(user, id, picture, name)
                 // }
                 

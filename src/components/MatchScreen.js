@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 
-export default function MatchScreen(props) {
-    var data = props.data;
+export default class MatchScreen extends Component {
+
+    componentDidMount() {
+        var d = new Date();
+        axios.post(`/api/match/${this.props.data.id}`,{'id':this.props.data.user.id, "matchTime": d})
+        .then((res) => console.log(res))
+    }
+
+render() {
+    var data = this.props.data;
     return (
     <div className='matchScreen'>
         <div className="msHeader">
@@ -19,8 +28,9 @@ export default function MatchScreen(props) {
         <NavLink exact to={`/convo/${data.id}`}>
             <button className="toconvo">SEND MESSAGE</button>
         </NavLink >
-        <button className="keepswiping" onClick={() => props.close()}>KEEP SWIPING</button>
+        <button className="keepswiping" onClick={() => this.props.close()}>KEEP SWIPING</button>
     </div>
     )
+}
 }
 

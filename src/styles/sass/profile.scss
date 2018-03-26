@@ -112,11 +112,14 @@
     left: -25px;
     z-index: 10000 !important;
     position: relative;
-    top: -13vh;
+    top: -52px;
     padding-right: 20px;
 }
 
 @media (max-width: 600px) {
+    .card {
+        width: 90%;
+    }
     // .anotherdiv {
     //     width: 100vw;
     //     // margin-left: -21%;
@@ -138,7 +141,6 @@
     // }
     .anotherdiv {
         width: 100vw;
-        left: calc((100vw - 360px)/-2);
         padding-right: 0;
     }
     #picWrap.fullScreen {

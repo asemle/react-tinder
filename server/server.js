@@ -149,6 +149,10 @@ app.post('/api/user/:id', profilesCtrl.updateProfile)
 
 app.post('/api/user/swipes/:id', profilesCtrl.updateSwipes)
 
+app.post('/api/match/:id', profilesCtrl.sendMatch)
+
+app.post('/api/messages/:recipient', profilesCtrl.sendMessage)
+app.post('/api/mymessages/:recipient', profilesCtrl.sendToSelf)
 // function writeUserData(x) {
 //     x.forEach(user => {
 //         firebase.database().ref('users/' + user.id).set({

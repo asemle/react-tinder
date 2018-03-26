@@ -50,6 +50,20 @@ module.exports = {
             }
         })
     },
+    sendMatch: (req, res) => {
+        console.log("send match to " + req.params.id)
+        console.log("add " +req.body.id)
+        
+        var newMatch = {"id":req.body.id, "messages": [], "matchTime": req.body.matchTime};
+
+        profiles.update({id: req.params.id}, {$push: {"matches": newMatch}}, function(err, data) {
+            if(err) {
+                console.log(err)
+            } else {
+                res.send(data);
+            }
+        })
+    },
     getMatches: (req, res) => {
         var arr = req.body.matches.map((el) => el.id)
         console.log(arr)
@@ -61,5 +75,34 @@ module.exports = {
                 console.log(err)
             }
         });
+    },
+    sendMessage: (req, res) => {
+
+        // profiles.update({ id: req.body.userid, "matches.id": req.params.recipient}, { $push: { "matches.$.messages": req.body}}, function (err, profile) {
+        //     if (!err) {
+        //         console.log(profile)
+        //         res.send(profile)
+        //     } else {
+        //         console.log(err)
+        //     }
+        // })
+        profiles.update({ id: req.params.recipient, "matches.id": req.body.userid }, { $push: { "matches.$.messages": req.body } }, function (err, profile) {
+            if (!err) {
+                console.log(profile)
+                res.send(profile)
+            } else {
+                console.log(err)
+            }
+        })
+    },
+    sendToSelf: (req, res) => {
+                profiles.update({ id: req.body.userid, "matches.id": req.params.recipient}, { $push: { "matches.$.messages": req.body}}, function (err, profile) {
+            if (!err) {
+                console.log(profile)
+                res.send(profile)
+            } else {
+                console.log(err)
+            }
+        })
     }
 }

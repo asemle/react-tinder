@@ -60,7 +60,6 @@ export default function (state = initialState, action) {
             return Object.assign({}, state, {loading: false, user:action.payload})
         case UPDATE_USER:
             return Object.assign({}, state, { user: payload })
-
         case UPDATE_NAME:
             return Object.assign({}, state, { name: payload })
         case UPDATE_AGE:
@@ -140,6 +139,8 @@ export function getMatches(user) {
         payload: user
     }
 }
+
+
 
 export function updateName(name) {
     return {

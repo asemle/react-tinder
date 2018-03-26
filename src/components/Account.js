@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import MyProfile from './MyProfile';
 import MyAccount from './MyAccount';
 import Edit from './Edit';
+import Settings from './Settings';
 
 
  class Account extends Component {
@@ -37,7 +38,9 @@ import Edit from './Edit';
             show = <MyProfile change={(x) => this.changeCmpt(x)} item={item}/>
         }
         else if (this.state.cmpt === "edit") {
-            show = <Edit item={item} change={(x) => this.changeCmpt(x)} item={item}/>
+            show = <Edit change={(x) => this.changeCmpt(x)} item={item}/>
+        } else if(this.state.cmpt === "settings") {
+            show = <Settings item={item} change={(x) => this.changeCmpt(x)}/>
         }
 
 

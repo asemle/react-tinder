@@ -10,6 +10,7 @@ class Messages extends Component {
         super(props);
 
         this.state = {
+            user: props.user,
             matches: []
         }
     }
