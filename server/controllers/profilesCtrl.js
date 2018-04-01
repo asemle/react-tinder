@@ -114,5 +114,15 @@ module.exports = {
                 console.log(err)
             }
         })
+    },
+    deleteUser: (req, res) => {
+        profiles.deleteOne({ "_id": ObjectId(req.params.id) },
+    (err, res) => {
+        if(!err) {
+            response.send(res)
+        } else {
+            response.send(err)
+        }
+    });
     }
 }

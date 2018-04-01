@@ -155,6 +155,8 @@ app.post('/api/match/:id', profilesCtrl.sendMatch)
 
 app.post('/api/messages/:recipient', profilesCtrl.sendMessage)
 app.post('/api/mymessages/:recipient', profilesCtrl.sendToSelf)
+
+app.delete('/api/user/:id', profilesCtrl.deleteUser)
 // function writeUserData(x) {
 //     x.forEach(user => {
 //         firebase.database().ref('users/' + user.id).set({

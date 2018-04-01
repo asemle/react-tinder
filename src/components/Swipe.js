@@ -123,7 +123,7 @@ class Swipe extends Component {
                 )}
             </Cards>
         } else {
-            theCards = <Loading />
+            theCards = <Loading picture={this.props.user.pictures[0]} />
         }
 
         var match = '';

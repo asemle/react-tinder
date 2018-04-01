@@ -94,29 +94,7 @@ export default function (state = initialState, action) {
 //     return {
 //         type: LOGOUT,
 //         payload: {}
-//     }
-// }
-
-// export function reset(user) {
-//     return {
-//         type: RESET,
-//         payload: {
-//             user: user,
-//             name: '',
-//             description: '',
-//             NAME: '',
-//             AGE: '',
-//             state: '',
-//             WORK: '',
-//             SCHOOL: '',
-//             GENDER: 0,
-//             mortgage: 0,
-//             desiredRent: 0,
-//             properties: []
-
-//         }
-//     }
-// }
+//     
 export function getUser() {
     return {
         type: GET_USER,
