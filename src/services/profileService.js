@@ -5,8 +5,13 @@ var profileService = {
     getUser:function() {
     return axios.get('/api/auth/authenticated')
     .then(res => 
-        {console.log(res.data)
-        return res.data})
+        {
+        console.log(res.data)
+        return res.data
+        }
+        ).catch( error  => {
+           
+        })
     },
     updateUser: function(user) {
         var id = user.id;

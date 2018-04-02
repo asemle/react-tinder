@@ -18,7 +18,14 @@ import MatchProfile from './components/MatchProfile.js';
 class App extends Component {
 
   componentDidMount() {
-    this.props.getUser();
+    this.props.getUser().then(function(props =this.props) {
+      if(!props.user) {
+      } else if (!props.user.name) {
+        this.props.history.push("login") 
+      } else {
+        
+      }
+    })
   }
 
   render() {
@@ -41,6 +48,7 @@ class App extends Component {
 function mapStateToProps(state) {
   return {
     user: state.user,
+    loading: state.loading
   }
 }
 
