@@ -4,6 +4,7 @@ import axios from 'axios';
 import Loading from './Loading.js';
 import ProfilePics from './ProfilePics.js';
 import Profile from './Profile.js';
+import {Redirect} from 'react-router-dom'
 
 import MatchScreen from './MatchScreen.js';
 
@@ -47,6 +48,9 @@ class Swipe extends Component {
     }
 
     render() {
+        if (this.props.loading === false && this.props.user.id === 0) {
+            return <Redirect push to={`/login`} />;
+        }
         let itsaMatch = (user, id, picture, name) => {
             this.setState({
                 matchscreen:{user, id, picture, name}
@@ -143,6 +147,7 @@ class Swipe extends Component {
 function mapStateToProps(state) {
     return {
         user: state.user,
+        loading: state.loading
     }
 }
 

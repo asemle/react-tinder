@@ -18,14 +18,7 @@ import MatchProfile from './components/MatchProfile.js';
 class App extends Component {
 
   componentDidMount() {
-    this.props.getUser().then(function(props =this.props) {
-      if(!props.user) {
-      } else if (!props.user.name) {
-        this.props.history.push("login") 
-      } else {
-        
-      }
-    })
+    this.props.getUser()
   }
 
   render() {

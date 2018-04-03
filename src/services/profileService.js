@@ -10,7 +10,7 @@ var profileService = {
         return res.data
         }
         ).catch( error  => {
-           
+            return { pictures: [], id: 0}
         })
     },
     updateUser: function(user) {
