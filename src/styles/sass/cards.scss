@@ -214,6 +214,7 @@
                 width: 100px;
                 height: 100px;
                 background-size: cover;
+                background-position: center;
                 border-radius: 50%;
                 border: 2px solid white;
             }
@@ -250,59 +251,68 @@
         }
     }
 
-    @-webkit-keyframes fadein {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
-
-    @-webkit-keyframes imgSlideLeft {
-        0% {
-            left: 120%
-        }
-        70% {
-            left: 30%;
-        }
-        100% {
-            left: 19%
+@media(max-width: 600px) {
+        .matchScreen {
+            height: 100vh;
+            .imageBox {
+                .imgLeft {
+                    left: 17%
+                }
+                .imgRight {
+                    right: 17%;
+            }
         }
     }
-
-    @-webkit-keyframes imgSlideRight {
-        0% {
-            right: 120%
+}
+        @-webkit-keyframes fadein {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
-        70% {
-            right: 30%;
+        @-webkit-keyframes imgSlideLeft {
+            0% {
+                left: 120%
+            }
+            70% {
+                left: 30%;
+            }
+            100% {
+                left: 19%
+            }
         }
-        100% {
-            right: 19%
+        @-webkit-keyframes imgSlideRight {
+            0% {
+                right: 120%
+            }
+            70% {
+                right: 30%;
+            }
+            100% {
+                right: 19%
+            }
         }
-    }
-
-    @-webkit-keyframes slideLeft {
-        0% {
-            margin-left: 120%
+        @-webkit-keyframes slideLeft {
+            0% {
+                margin-left: 120%
+            }
+            80% {
+                margin-left: -10%;
+            }
+            100% {
+                margin-left: 0%
+            }
         }
-        80% {
-            margin-left: -10%;
+        @-webkit-keyframes slideRight {
+            0% {
+                margin-right: 120%
+            }
+            80% {
+                margin-right: -10%;
+            }
+            100% {
+                margin-right: 0%
+            }
         }
-        100% {
-            margin-left: 0%
-        }
-    }
-
-    @-webkit-keyframes slideRight {
-        0% {
-            margin-right: 120%
-        }
-        80% {
-            margin-right: -10%;
-        }
-        100% {
-            margin-right: 0%
-        }
-    }

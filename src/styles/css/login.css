@@ -1,0 +1,49 @@
+.login {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-image: linear-gradient(180deg, #fd5068, #ff7854);
+  height: 100%;
+  z-index: 10;
+  padding: 50px 12px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  text-align: center; }
+
+.logoBox div {
+  margin: 10% 0 10%; }
+
+.logoText {
+  font-size: 64px; }
+
+.authBox {
+  margin: -10% 0 16px; }
+  .authBox .authButton {
+    background: linear-gradient(260deg, #337eb9, #384499);
+    -webkit-box-shadow: 0 2px 4px 0 rgba(116, 102, 99, 0.27);
+    box-shadow: 0 2px 4px 0 rgba(116, 102, 99, 0.27);
+    padding: 20px 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 100px; }
+    .authBox .authButton a {
+      text-decoration: none;
+      color: white; }
+
+.legalStuff {
+  opacity: 0.8;
+  margin: 12px 0 64px;
+  font-size: 12px;
+  font-weight: 200;
+  padding: 0 8px; }
+  .legalStuff span {
+    display: inline-block;
+    margin-bottom: 8px; }
+    .legalStuff span a {
+      color: white;
+      display: inline;
+      text-decoration: initial; }
+
+/*# sourceMappingURL=login.css.map */

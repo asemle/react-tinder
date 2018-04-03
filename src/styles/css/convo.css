@@ -1,0 +1,96 @@
+.convo {
+  height: 100%;
+  position: absolute; }
+  .convo nav {
+    border-bottom: 1px solid rgba(200, 200, 200, 0.4);
+    box-shadow: 0px 0px 100px rgba(200, 200, 200, 0.4); }
+
+.inputBox {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid rgba(200, 200, 200, 0.4);
+  box-shadow: 0px 0px 100px rgba(200, 200, 200, 0.4);
+  padding: 8px;
+  color: #d8d8d8;
+  background-color: white; }
+  .inputBox input[type="text"] {
+    width: 100%;
+    border-radius: 100px;
+    padding: 5px 50px 5px 13px;
+    border: 1px solid #e3e3e3;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    line-height: 21px;
+    color: #424242;
+    font-weight: 300;
+    caret-color: #2A8CFB; }
+    .inputBox input[type="text"]:focus {
+      outline: none; }
+    .inputBox input[type="text"]::placeholder {
+      color: #c8c8c8; }
+  .inputBox input[type="submit"] {
+    font-size: 16px;
+    margin-left: -55px;
+    height: 25px;
+    width: 50px;
+    background-color: rgba(0, 0, 0, 0);
+    color: #c8c8c8;
+    border: 0;
+    -webkit-appearance: none; }
+    .inputBox input[type="submit"]:focus {
+      outline: none; }
+
+.convoInner {
+  padding: 10px 0 60px;
+  overflow-y: scroll;
+  height: calc(100% - 74px); }
+
+.matchTime {
+  text-align: center;
+  color: #9b9b9b;
+  font-size: 11px;
+  font-weight: 200; }
+
+.message {
+  margin: 8px;
+  color: white;
+  font-weight: 200; }
+  .message div {
+    background-color: #2A8CFB;
+    padding: 10px 12px;
+    display: inline-block; }
+    .message div span {
+      font-size: 13px;
+      line-height: 1.3125; }
+
+.matchedOn {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #424242; }
+  .matchedOn div {
+    max-width: 340px; }
+  .matchedOn h3 {
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 400;
+    margin-bottom: 5px; }
+    .matchedOn h3 b {
+      font-weight: 600; }
+  .matchedOn span {
+    font-size: 14px;
+    font-weight: 300; }
+  .matchedOn a div {
+    margin: 24px auto;
+    border-radius: 50%;
+    width: 146px;
+    height: 146px;
+    overflow: hidden; }
+    .matchedOn a div img {
+      height: 100%; }
+
+/*# sourceMappingURL=convo.css.map */

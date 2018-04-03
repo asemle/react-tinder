@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box; }
+
+.messagesWrap {
+  height: 100%; }
+
+.matchesTitle {
+  padding: 12px 8px;
+  text-align: left; }
+  .matchesTitle span {
+    color: #fd5068;
+    font-weight: 600;
+    font-size: 15px; }
+
+.matchList {
+  text-align: left;
+  width: 100%;
+  white-space: nowrap;
+  padding: 4px 8px;
+  padding-bottom: 4px;
+  overflow-x: scroll; }
+
+.newMatch {
+  text-align: center;
+  margin: 0 4px;
+  display: inline-block;
+  color: #424242;
+  text-decoration: none; }
+  .newMatch div {
+    height: 74px;
+    width: 74px;
+    margin: 0 auto;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center; }
+  .newMatch span {
+    text-align: center;
+    font-weight: 500;
+    display: block;
+    font-size: 15px; }
+
+.noMessages {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  -webkit-box-align: center;
+  align-items: center;
+  flex: 1;
+  height: 70%; }
+  .noMessages div div {
+    width: 240px;
+    margin-top: 20px; }
+  .noMessages h3 {
+    font-size: 20px;
+    margin: 0 0 3px;
+    font-weight: 500; }
+  .noMessages span {
+    display: inline-block;
+    width: 85%;
+    color: #9b9b9b;
+    font-size: 14px;
+    font-weight: 200; }
+
+.convo {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  background-color: #fff; }
+  .convo nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0; }
+    .convo nav span {
+      width: 44px; }
+
+.backButton {
+  color: #FD486B;
+  font-size: 44px;
+  width: 44px; }
+
+.messageNavProfile {
+  text-decoration: none; }
+  .messageNavProfile div {
+    text-align: center;
+    width: 44px;
+    height: 44px;
+    overflow: hidden;
+    border-radius: 100%;
+    margin: 0 auto; }
+    .messageNavProfile div img {
+      min-width: 100%;
+      height: 100%; }
+  .messageNavProfile span {
+    color: grey;
+    font-size: 12px;
+    font-weight: 300; }
+
+.matchProfile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  max-height: 100%;
+  overflow-y: scroll;
+  background-color: white; }
+  .matchProfile #profile {
+    display: block;
+    top: -130px;
+    min-height: 300px;
+    width: 100%; }
+
+.messagesBox {
+  box-sizing: border-box;
+  padding: 0 8px; }
+  .messagesBox .newMatch {
+    text-align: left;
+    height: 90px;
+    width: 100%; }
+    .messagesBox .newMatch div {
+      width: 90px;
+      height: 90px; }
+    .messagesBox .newMatch span {
+      display: inline-block;
+      height: 20px;
+      width: calc(100% - 1px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding-left: 10px;
+      color: #7c7c7c;
+      font-weight: 300; }
+  .messagesBox .contentBox {
+    position: absolute;
+    height: 90px;
+    display: inline-block;
+    width: calc(100% - 130px);
+    margin: 0 20px;
+    border-bottom: 1px solid #e3e3e3; }
+  .messagesBox h4 {
+    margin: 18px 0 8px;
+    font-weight: 400; }
+
+/*# sourceMappingURL=messages.css.map */

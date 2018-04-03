@@ -185,6 +185,7 @@ li {
       width: 100px;
       height: 100px;
       background-size: cover;
+      background-position: center;
       border-radius: 50%;
       border: 2px solid white; }
     .matchScreen .imageBox .imgLeft {
@@ -213,6 +214,13 @@ li {
       border: 2px solid #fd5068;
       animation: slideRight 0.3s; }
 
+@media (max-width: 600px) {
+  .matchScreen {
+    height: 100vh; }
+    .matchScreen .imageBox .imgLeft {
+      left: 17%; }
+    .matchScreen .imageBox .imgRight {
+      right: 17%; } }
 @-webkit-keyframes fadein {
   0% {
     opacity: 0; }
